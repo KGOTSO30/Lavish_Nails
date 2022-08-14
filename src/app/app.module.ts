@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -41,11 +42,8 @@ import { HotToastModule } from '@ngneat/hot-toast';
     MatButtonModule,
     MatDialogModule,
     MatInputModule,
-    HomeComponent,
-    SignupComponent,
-    LoginComponent,
-    BookNowComponent,
-    LandingComponent,
+    RouterModule,
+   
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

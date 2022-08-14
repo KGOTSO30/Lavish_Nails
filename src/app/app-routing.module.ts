@@ -22,8 +22,15 @@ import { LandingComponent } from './components/landing/landing.component';
 const routes: Routes = [
   {
     path: '',
+    redirectTo: 'landing',
     pathMatch: 'full',
     component: LandingComponent
+    
+  },
+  {
+    path: 'landing',
+    component: LandingComponent
+   // ...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: 'login',
@@ -39,13 +46,17 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
    // ...canActivate(redirectUnauthorizedToLogin),
-  }
+  },
+  
+
+
 
 ];
 
 @NgModule({
   imports: [
     CommonModule,
+  
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]
