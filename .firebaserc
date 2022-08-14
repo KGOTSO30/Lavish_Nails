@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "lavish-nails-6f06a": {
+      "hosting": {
+        "Lavish": [
+          "lavish-nails-6f06a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "lavish-nails-6f06a"
+  }
+}

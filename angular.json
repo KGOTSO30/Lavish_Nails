@@ -96,6 +96,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "Lavish:build:production",
+            "firebaseProject": "lavish-nails-6f06a",
+            "firebaseHostingSite": "lavish-nails-6f06a"
+          }
         }
       }
     }
