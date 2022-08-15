@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterModule} from '@angular/router'
+import { RouterModule, Router} from '@angular/router'
+import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,14 @@ import { RouterModule} from '@angular/router'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Lavish';
+  
+  constructor(public authService: AuthenticationService, private router: Router){
+
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.router.navigate(['']);
+    });
+  }
 }

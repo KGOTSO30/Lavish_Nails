@@ -15,23 +15,23 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class LoginComponent implements OnInit {
 
-  /*
- var loginForm = new FormGroup({
+  
+  loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('', [Validators.required])
   });
-  */
+  
 
-  constructor(/*
+  constructor(
     private authService: AuthenticationService,
     private router: Router,
     private toast: HotToastService
-    */
+    
     ) { }
 
   ngOnInit(): void { }
 
-  /*
+  
   get email() {
     return this.loginForm.get('email');
   }
@@ -55,6 +55,6 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/home']);
     });
   }
-  */
+  
 
 }

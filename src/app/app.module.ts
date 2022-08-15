@@ -11,7 +11,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
@@ -22,7 +22,8 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
-
+import { AppRoutingModule } from './app-routing.module';
+import {MatMenuModule} from '@angular/material/menu'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,6 +44,10 @@ import { HotToastModule } from '@ngneat/hot-toast';
     MatDialogModule,
     MatInputModule,
     RouterModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    MatMenuModule,
+  
    
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
