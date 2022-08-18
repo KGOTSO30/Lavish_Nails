@@ -18,4 +18,9 @@ export class AppComponent {
       this.router.navigate(['']);
     });
   }
+
+  Book() {
+    
+      this.router.navigate(['/book-now']);
+    }
 }

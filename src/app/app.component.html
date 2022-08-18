@@ -13,11 +13,16 @@
     </ng-container>
 
     <ng-template #loginButton>
+<div>
+    
 
-        <button mat-button routerLink="login">
-            <mat-icon>login</mat-icon>
-            Login
-        </button> 
+    <button mat-button routerLink="login">
+        <mat-icon>login</mat-icon>
+        Login
+    </button> 
+
+</div>
+      
 
     </ng-template>
 
@@ -38,5 +43,5 @@
 
 <mat-menu #userMenu="matMenu">
     <button mat-menu-item (click)="logout()">Logout</button>
-    <button mat-menu-item (click)="logout()">Cart</button>
+    <button mat-menu-item (click)="Book()">Book Now</button>
 </mat-menu>

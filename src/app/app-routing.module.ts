@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component'; 
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
@@ -47,8 +48,16 @@ const routes: Routes = [
     component: HomeComponent,
     ...canActivate(redirectUnauthorizedToLogin),
   },
-  
-
+  {
+    path: 'add-appointment',
+    component: AddAppointmentComponent,
+    //...canActivate(redirectUnauthorizedToLogin),
+   
+  },
+  {
+    path: 'book-now',
+    component: BookNowComponent,
+  }
 
 
 ];

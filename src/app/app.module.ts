@@ -23,7 +23,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { AppRoutingModule } from './app-routing.module';
-import {MatMenuModule} from '@angular/material/menu'; 
+import {MatMenuModule} from '@angular/material/menu';
+import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +33,7 @@ import {MatMenuModule} from '@angular/material/menu';
     LoginComponent,
     BookNowComponent,
     LandingComponent,
+    AddAppointmentComponent,
   ],
   imports: [
     BrowserModule,
