@@ -1,0 +1,68 @@
+<div *ngIf="currentAppointment" class="edit-form">
+    <h4>Appointment</h4>
+    <form>
+      <div class="form-group">
+        <label for="appointmentService">Service Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="appointmentService"
+          [(ngModel)]="currentAppointment.appointmentService"
+          name="appointmentService"
+        />
+      </div>
+      <div class="form-group">
+        <label for="appointmentService">Service Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="appointmentService"
+          [(ngModel)]="currentAppointment.appointmentService"
+          name="appointmentService"
+        />
+      </div>
+
+
+
+      <div class="form-group">
+        <label for="appointmentStatus">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="appointmentStatus"
+          [(ngModel)]="currentAppointment.appointmentStatus"
+          name="appointmentStatus"
+        />
+      </div>
+      <div class="form-group">
+        <label><strong>Status:</strong></label>
+        {{ currentAppointment.appstatus ? "Completed" : "Pending" }}
+      </div>
+    </form>
+    <button
+      class="badge badge-primary mr-2"
+      *ngIf="currentAppointment.appstatus"
+      (click)="updateCompleted(false)"
+    >
+      Unmark Complete
+    </button>
+    <button
+      *ngIf="!currentAppointment.appstatus"
+      class="badge badge-primary mr-2"
+      (click)="updateCompleted(true)"
+    >
+      Mark Complete
+    </button>
+    <button class="badge badge-danger mr-2" (click)="deleteAppointment()">
+      Delete
+    </button>
+    <button type="submit" class="badge badge-success" (click)="updateAppointment()">
+      Update
+    </button>
+    <p>{{ message }}</p>
+  </div>
+  <div *ngIf="!currentAppointment">
+    <br />
+    <p>Cannot access this Appointment...</p>
+  </div>
+  

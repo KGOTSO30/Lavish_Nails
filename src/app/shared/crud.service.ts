@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import{ Client } from '../shared/client';
+import{ Client } from '../models/client.model';
 import { Appointment} from '../models/appointment.model';
 
 import {
@@ -16,11 +16,14 @@ import { throwDialogContentAlreadyAttachedError } from '@angular/cdk/dialog';
 })
 export class CrudService {
   private dbPath = '/appointments';
-
+  private dbPath1 = '/clients';
 
   appointmentsRef!: AngularFirestoreCollection<Appointment>;
+  clientsRef!: AngularFirestoreCollection<Client>;
+
   constructor( private db: AngularFirestore){
     this.appointmentsRef = db.collection(this.dbPath);
+    this.clientsRef = db.collection(this.dbPath1);
   }
  
   getAll(): AngularFirestoreCollection<Appointment>{

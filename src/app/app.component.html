@@ -20,6 +20,11 @@
         <mat-icon>login</mat-icon>
         Login
     </button> 
+    
+    <button mat-button  [routerLink]="['/add-appointment']">
+        Book now 2
+     </button>
+
 
 </div>
       
@@ -43,5 +48,9 @@
 
 <mat-menu #userMenu="matMenu">
     <button mat-menu-item (click)="logout()">Logout</button>
-    <button mat-menu-item (click)="Book()">Book Now</button>
+    <button mat-menu-item (click)="Book()">Bookings</button>
+    <button mat-button  [routerLink]="['/AppointmentList']">
+        Appointments
+     </button>
+
 </mat-menu>

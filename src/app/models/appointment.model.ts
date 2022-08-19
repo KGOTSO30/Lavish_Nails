@@ -10,4 +10,5 @@ export class Appointment {
     appointmentTime?: Time;
     appointmentStatus?: string;
     appointmentService?: string;
+    appstatus?: boolean;
 }

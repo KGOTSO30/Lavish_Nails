@@ -4,6 +4,9 @@ import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
+import { AuthService } from "../../services/auth.service";
+
+
 export function passwordsMatchValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
 
@@ -37,7 +40,7 @@ export class SignupComponent implements OnInit {
   );
 
   constructor(
-    private authService: AuthenticationService,
+    private authService: AuthService,
     private router: Router,
     private toast: HotToastService
   ) { }
@@ -68,16 +71,12 @@ export class SignupComponent implements OnInit {
     if (!this.signUpForm.valid) return;
 
     const { name, email, password} = this.signUpForm.value;
-    this.authService.signUp(name!, email!, password!).pipe(
-      this.toast.observe({
-        success:'Congrats! You are all signed up',
-        loading: 'Signing in',
-        error:({ message}) => `${message}`
-      })
-    ).subscribe(() => {
-      this.router.navigate(['/home']);
-    })
-
+    this.authService.SignUp(name!, email!, password!)
+    
+     
+        this.router.navigate(['home']);
+    
+    
   }
 
 

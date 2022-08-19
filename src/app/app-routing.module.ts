@@ -2,6 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
+import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
+import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component'; 
+
 import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component'; 
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -51,12 +54,16 @@ const routes: Routes = [
   {
     path: 'add-appointment',
     component: AddAppointmentComponent,
-    //...canActivate(redirectUnauthorizedToLogin),
+   // ...canActivate(redirectUnauthorizedToLogin),
    
   },
   {
     path: 'book-now',
     component: BookNowComponent,
+  },
+  {
+    path: 'AppointmentList',
+    component: AppointmentListComponent,
   }
 
 

@@ -2,10 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
+import { AuthService } from "./services/auth.service";
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
+
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,7 +31,9 @@ import { provideFirestore,getFirestore,  } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { AppRoutingModule } from './app-routing.module';
 import {MatMenuModule} from '@angular/material/menu';
-import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component'; 
+import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component';
+import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
+import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +43,8 @@ import { AddAppointmentComponent } from './components/add-appointment/add-appoin
     BookNowComponent,
     LandingComponent,
     AddAppointmentComponent,
+    AppointmentListComponent,
+    AppointmentDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +60,7 @@ import { AddAppointmentComponent } from './components/add-appointment/add-appoin
     AppRoutingModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatDatepickerModule,
   
    
     FormsModule,
@@ -63,7 +71,9 @@ import { AddAppointmentComponent } from './components/add-appointment/add-appoin
     provideFirestore(() => getFirestore()),
     HotToastModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

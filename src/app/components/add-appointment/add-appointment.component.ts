@@ -11,6 +11,7 @@ export class AddAppointmentComponent implements OnInit {
 
   appointment: Appointment = new Appointment();
   submitted = false;
+  selected!: Date | null;
 
   constructor(private appointmentService: CrudService) { }
 
@@ -30,3 +31,6 @@ export class AddAppointmentComponent implements OnInit {
   }
 
 }
+
+
+  
