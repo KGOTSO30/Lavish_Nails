@@ -1,0 +1,28 @@
+<div class="list row">
+    <div class="col-md-6">
+      <h4>Appointments List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let appointment of appointments; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveAppointment(appointment, i)"
+        >
+          {{ appointment.appointmentService }}
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-6">
+      <div *ngIf="currentAppointment">
+        <app-appointment-details
+          (refreshList)="refreshList()"
+          [appointment]="currentAppointment"
+        ></app-appointment-details>
+      </div>
+      <div *ngIf="!currentAppointment">
+        <br />
+        <p>Please click on an Appointment...</p>
+      </div>
+    </div>
+  </div>
+  

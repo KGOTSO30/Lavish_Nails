@@ -2,6 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
+import { AuthService } from "./services/auth.service";
+
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -20,10 +27,13 @@ import { LandingComponent } from './components/landing/landing.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideFirestore,getFirestore,  } from '@angular/fire/firestore';
 import { HotToastModule } from '@ngneat/hot-toast';
 import { AppRoutingModule } from './app-routing.module';
-import {MatMenuModule} from '@angular/material/menu'; 
+import {MatMenuModule} from '@angular/material/menu';
+import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component';
+import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
+import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +42,9 @@ import {MatMenuModule} from '@angular/material/menu';
     LoginComponent,
     BookNowComponent,
     LandingComponent,
+    AddAppointmentComponent,
+    AppointmentListComponent,
+    AppointmentDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,15 +60,20 @@ import {MatMenuModule} from '@angular/material/menu';
     AppRoutingModule,
     ReactiveFormsModule,
     MatMenuModule,
+    MatDatepickerModule,
   
    
     FormsModule,
+    AngularFirestoreModule,
+    AngularFireModule.initializeApp(environment.firebase),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
     HotToastModule.forRoot()
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+

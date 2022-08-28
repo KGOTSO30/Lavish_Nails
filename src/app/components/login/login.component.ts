@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 
+import { AuthService } from "../../services/auth.service";
+
+
 import { HotToastService } from '@ngneat/hot-toast';
 //import { AuthService } from 'src/app/services/auth.service';
 
@@ -23,7 +26,7 @@ export class LoginComponent implements OnInit {
   
 
   constructor(
-    private authService: AuthenticationService,
+    private authService: AuthService,
     private router: Router,
     private toast: HotToastService
     
@@ -45,7 +48,15 @@ export class LoginComponent implements OnInit {
       return;
     }
     const { email, password } = this.loginForm.value;
-    this.authService.login( email!, password!).pipe(
+    this.authService.SignIn( email!, password!)
+  }
+  
+
+}
+
+
+/*
+.pipe(
       this.toast.observe({
         success: 'Logged in successfully',
         loading: 'Logging in...',
@@ -54,7 +65,4 @@ export class LoginComponent implements OnInit {
     ).subscribe(() => {
         this.router.navigate(['/home']);
     });
-  }
-  
-
-}
+*/
