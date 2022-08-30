@@ -11,4 +11,5 @@ export class Appointment {
     appointmentStatus?: string;
     appointmentService?: string;
     appstatus?: boolean;
+  payload: any;
 }

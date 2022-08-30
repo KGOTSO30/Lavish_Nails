@@ -14,11 +14,16 @@ import {
   providedIn: 'root'
 })
 export class AuthenticationService {
+  logout() {
+    throw new Error('Method not implemented.');
+  }
   private afs!: AngularFirestore;
   currentUser$ = authState(this.auth);
 
   constructor(private auth: Auth,) { }
 
+
+  /*
   login(email: string, password: string) {
     return from(signInWithEmailAndPassword(this.auth, email, password)
     .then((result) => {
@@ -38,6 +43,8 @@ export class AuthenticationService {
   logout() {
     return from(this.auth.signOut());
   }
+
+  */
 /*
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(

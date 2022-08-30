@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Appointment} from 'src/app/models/appointment.model'
 import {CrudService} from 'src/app/shared/crud.service'
 import { map } from 'rxjs/operators';
+import { idToken } from '@angular/fire/auth';
+
+
 
 @Component({
   selector: 'app-appointment-list',
@@ -30,7 +33,7 @@ export class AppointmentListComponent implements OnInit {
     this.appoinmentService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c => 
-          ({id: c.payload.doc.id, ...c.payload.doc.data()})
+          ({id: c.payload.doc.data(), ...c.payload.doc.data()})
         )
       )
     ).subscribe(data => {

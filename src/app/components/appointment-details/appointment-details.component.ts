@@ -13,11 +13,10 @@ export class AppointmentDetailsComponent implements OnInit {
   @Input() appointment?: Appointment;
   @Output() refreshList: EventEmitter<any>  = new EventEmitter();
   currentAppointment: Appointment = {
-    
-    
     appointmentStatus: '',
     appointmentService: '',
-    appstatus: false
+    appstatus: false,
+    payload: undefined
   };
   message = '';
   constructor(private appointmentService: CrudService) { }
@@ -25,7 +24,7 @@ export class AppointmentDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.message = '';
-    this.currentAppointment =  { ...this.appointment}
+   // this.currentAppointment =  { ...this.appointment}
   }
 
   updateCompleted(status: boolean): void {
