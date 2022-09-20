@@ -7,15 +7,26 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { switchMap } from 'rxjs';
-import { updateProfile } from '@angular/fire/auth';
+import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  authState,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  UserInfo,
+  UserCredential,} from '@angular/fire/auth';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   userData: any; // Save logged in user data
   
+  currentUser$ = authState(this.auth);
+
+
   constructor(
+    private auth: Auth,
     public afs: AngularFirestore, // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
     public router: Router,
@@ -23,6 +34,8 @@ export class AuthService {
   ) {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
+
+    /*
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.userData = user;
@@ -33,7 +46,44 @@ export class AuthService {
         JSON.parse(localStorage.getItem('user')!);
       }
     });
+    */
   }
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+signUp(email: string, password: string): Observable<UserCredential> {
+  return from(createUserWithEmailAndPassword(this.auth, email, password));
+}
+
+login(email: string, password: string): Observable<any> {
+  return from(signInWithEmailAndPassword(this.auth, email, password));
+  
+}
+
+// updateProfile(profileData: Partial<UserInfo>): Observable<any> {
+//   const user = this.auth.currentUser;
+//   return of(user).pipe(
+//     concatMap((user) => {
+//       if (!user) throw new Error('Not authenticated');
+
+//       return updateProfile(user, profileData);
+//     })
+//   );
+// }
+
+logout(): Observable<any> {
+  return from(this.auth.signOut());
+}
+
+
+
+
+
+
+
+
+
+  /*
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth['signInWithEmailAndPassword'](email, password)
@@ -50,12 +100,12 @@ export class AuthService {
       });
   }
   // Sign up with email/password
-  SignUp(name: string, email: string, password: string) {
+  SignUp(email: string, password: string) {
     return this.afAuth['createUserWithEmailAndPassword'](email, password)
       .then((result: { user: any; }) => {
-        /* Call the SendVerificaitonMail() function when new user sign 
-        up and returns promise */
-        this.SendVerificationMail();
+      // Call the SendVerificaitonMail() function when new user sign 
+       // up and returns promise 
+       // this.SendVerificationMail();
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
@@ -90,6 +140,14 @@ export class AuthService {
     const user = JSON.parse(localStorage.getItem('user')!);
     return user !== null && user.emailVerified !== false ? true : false;
   }
+*/
+
+
+
+
+
+
+
   // Sign in with Google
   /*
   GoogleAuth() {
@@ -115,30 +173,42 @@ export class AuthService {
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
+
+
+  /*
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
     );
     const userData: Client = {
-      clientId: user.uid,
-      email: user.email,
-    /*  firstName: user.firstName,
+      
+      uid: user.uid, 
+      firstName: user.firstName,
       lastName: user.lastName,
+      email: user.email,
+      
       phoneNumber: user.phoneNumber,
-      status: user.status,
+     // status: user.status,
       completedAppointments: user.completedAppointments,
-      totalSpend: user.totalSpend,*/
+      totalSpend: user.totalSpend,
       
     };
     return userRef.set(userData, {
       merge: true,
     });
   }
+  */
+
+
+
   // Sign out
+  /*
   SignOut() {
     return this.afAuth['signOut']().then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['login']);
     });
   }
+  */
+
 }

@@ -13,13 +13,22 @@
       </div>
       
       <div class="form-group">
+        <div>
+          <mat-card class="demo-inline-calendar-card" for="appointmentDate">
+            <mat-calendar [(selected)]="selected"></mat-calendar>
+          </mat-card>
         
-        <label for="description">Appointment Date</label>
-        <input
+        </div>
+        
+        <label >Appointment Date</label>
+        
+        
+        <input type="date"
           class="form-control"
           id="appointmentDate"
+          value="selected"
           required
-          [(ngModel)]="appointment.appointmentDate"
+          [(ngModel)]="selected"
           name="appointmentDate"
         />
       </div>

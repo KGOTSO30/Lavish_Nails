@@ -5,6 +5,15 @@ import { CommonModule } from '@angular/common';
 import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
 import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component'; 
 
+import {
+  HighchartsChartModule
+} from "highcharts-angular";
+
+import { SalesComponent } from './components/sales/sales.component';
+import { ListComponent } from './components/book-now/list/list.component';
+import { ProfileComponent } from './components/profile/profile.component'; 
+import { ReportTestComponent } from './components/report-test/report-test.component'; 
+import { SalonComponent } from './components/salon/salon.component'; 
 import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component'; 
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -39,12 +48,12 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
-    ...canActivate(redirectLoggedInToHome),
+    //...canActivate(redirectLoggedInToHome),
   },
   {
     path: 'signup',
     component: SignupComponent,
-    ...canActivate(redirectLoggedInToHome),
+    //...canActivate(redirectLoggedInToHome),
   },
   {
     path: 'home',
@@ -62,10 +71,30 @@ const routes: Routes = [
     component: BookNowComponent,
   },
   {
-    path: 'AppointmentList',
-    component: AppointmentListComponent,
-  }
+    path: 'list',
+    component: ListComponent,
+  },
 
+  {
+    path: 'salon',
+    component: SalonComponent,
+  },
+
+  {
+    path: 'report-test',
+    component: ReportTestComponent,
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent,
+  },
+  { path: 'pokemon', loadChildren: () => import('./core/features/pokemon/pokemon.module').then(m => m.PokemonModule) },
+
+  
+  {
+    path: 'sales',
+    component: SalesComponent,
+  }, 
 
 ];
 

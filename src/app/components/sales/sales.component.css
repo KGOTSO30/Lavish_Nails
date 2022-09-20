@@ -1,0 +1,34 @@
+table {
+    width: 100%;
+  }
+
+  .mat-column-Price {
+    width: 240px;
+    border-left: 1px solid currentColor;
+    padding-left: 24px;
+    text-align: center;
+  }
+
+  .mat-column-ServiceName {
+    width: auto;
+    border-left: 1px solid currentColor;
+   
+  }
+
+  .mat-column-ServiceType {
+    width: 240px;
+    border-left: 1px solid currentColor;
+    padding-left: 24px;
+    text-align: center;
+  }
+
+  .mat-column-Extras {
+    width: 240px;
+    border-left: 1px solid currentColor;
+    padding-left: 24px;
+    text-align: center;
+  }
+
+  tr.mat-footer-row {
+    font-weight: bold;
+  }

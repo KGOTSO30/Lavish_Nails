@@ -1,0 +1,65 @@
+
+
+
+<div class="center">
+  <h2> Unconfirmed Bookings</h2>
+</div>
+<hr/>
+<div>
+
+  
+</div>
+<div class="appointment-list item-list mb-3">
+    <div class="spinner" *ngIf="showSpinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+    <div *ngIf ="hasAppointments; else notShow">
+    <div #listEL class="appointment-item col media py-3 border-bottom" [attr.data-list-id]="item.id"
+    *ngFor="let item of appointments2 "  >
+  
+  
+  
+      <div class="app-info media-body">
+        <div class="app-head d-flex">
+          <h2 class="app-name"  ><a class="" routerLink="/Newappointments/{{item.id}}">{{item.serviceName}}</a></h2>
+          <span class="apt-date ml-auto">{{item.appointmentDate.seconds * 1000 | date:'d MMMM yyyy' }}</span>
+        </div><!-- app-head -->
+  
+        <div class="client-name">
+          <span class="label-item"> </span>
+          <span >{{item.serviceType}} service type</span>
+        </div>
+  
+      </div><!-- app-info -->
+  
+      <div class="ml-3">
+        <button class="app-delete btn btn-sm btn-danger"
+                (click)="handleDelete(listEL)">
+         
+        </button>
+      </div><!-- media-right -->
+  
+      
+    
+    </div><!-- app-item -->
+    </div>
+    <button mat-raised-button  [routerLink]="['/sales']">
+        Back
+    </button>
+    <span>
+      <button mat-raised-button color="accent" [routerLink]="['/home']">
+        home
+      </button>
+    </span>
+    <span>
+     
+    </span>
+    <ng-template #notShow>
+      <div class="text-center bg-light p-5">
+        
+        Lavish Nail By Lolly.
+      </div>
+    </ng-template>
+  </div><!-- appointment-list -->

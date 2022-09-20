@@ -1,10 +1,35 @@
-<p>book-now works!</p>
 
+  <!-- Begin page content -->
+  <main role="main" class="flex-shrink-0">
+    <div class="container">
+      <h2 class="py-5"> {{ title }}!</h2>
+  
+        <app-add 
+       ></app-add> 
+       <router-outlet
+       ></router-outlet>
+     
+    </div>
+  </main>
 <div>
     
-
-<button mat-raised-button color="primary" [routerLink]="['/add-appointment']">
-    Book now 2
+   
+<button mat-raised-button color="primary" [routerLink]="['/home']">
+    Back home
  </button>
 
   </div>
+
+  <!--
+    <app-pokemon 
+      ></app-pokemon> 
+
+    <app-list
+               
+       ></app-list> 
+
+       
+      <app-detail
+               
+      ></app-detail> 
+  -->

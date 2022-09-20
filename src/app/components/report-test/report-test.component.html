@@ -1,0 +1,137 @@
+
+
+
+<div   style="display: flex; " width="50%">
+ 
+  <span>
+    <div class="col-md-6" style="display: block" >
+      Total Clients
+      <div class="col-md-6">
+        {{clients}}
+      </div>
+    </div>
+  </span>
+    
+    
+    
+   <span>
+    <div class="col-md-6" style="display: block; ">
+      Cancelled Clients
+      <div class="col-md-6">
+        {{cancelled}}
+      </div>
+    </div>
+   </span>
+    
+   
+    
+  
+    <span>
+      <div class="col-md-6" style="flex-grow: 1;">
+        Cancellation Rate
+        <div class="col-md-6">
+          {{completed}}
+        </div>
+      </div>
+    </span>
+   
+
+
+</div>
+
+<hr/>
+    
+
+
+
+
+
+
+<div>
+  <table mat-table [dataSource]="dataSequenceSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+  
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="Name" id="firstName">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Surname">
+      <th mat-header-cell *matHeaderCellDef> Surname </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Email">
+      <th mat-header-cell *matHeaderCellDef> Email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+
+    <!-- PhoneNumber cloumn-->
+
+    <ng-container matColumnDef="PhoneNumber">
+      <th mat-header-cell *matHeaderCellDef> Phone Number </th>
+      <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedSequenceColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedSequenceColumns;"></tr>
+  </table>
+  
+  
+</div>
+<hr/>
+
+
+
+<div  style="display: flex;" >
+ 
+  <br />
+  <highcharts-chart *ngIf="saleOptions"
+  [Highcharts]="Highcharts"
+  [options]="saleOptions"
+  style="width: 50%; height: 400px; display: block;">
+  </highcharts-chart>
+   
+
+</div>
+
+
+
+<br />
+
+<div class="col-md-6">
+
+  <span>
+    <button mat-raised-button color="accent" [routerLink]="['/home']">
+      home
+    </button>
+  </span>
+  <span>
+    <button mat-raised-button color="primary" [routerLink]="['/sales']">
+      Services Rendered
+    </button>
+  </span>
+
+</div>
+
+
+<!--
+
+   <highcharts-chart *ngIf="chartOptions"
+    [Highcharts]="Highcharts"
+    [options]="chartOptions"
+    style="width: 50%; height: 400px; display: block;">
+  </highcharts-chart>
+  
+-->
+
+
+
+  

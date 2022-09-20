@@ -2,12 +2,12 @@
     
     Lavish Nails
 
-    <ng-container 
+    <ng-container *ngIf="user$ | async as user; else loginButton"
     >
 
         <button mat-button [matMenuTriggerFor]="userMenu">
             <mat-icon>account_circle</mat-icon>
-          <!-- {{user.displayName}}-->  
+           {{user.firstName}}
             <mat-icon>expand_more</mat-icon>
         </button>
 
@@ -22,9 +22,7 @@
         Login
     </button> 
     
-    <button mat-button  [routerLink]="['/add-appointment']">
-        Book now 2
-     </button>
+    
 
 
 </div>
@@ -48,10 +46,15 @@
 
 
 <mat-menu #userMenu="matMenu">
-    <button mat-menu-item (click)="logout()">Logout</button>
+    <button mat-button  [routerLink]="['/profile']">
+        Profile
+     </button>
+    
     <button mat-menu-item (click)="Book()">Bookings</button>
     <button mat-button  [routerLink]="['/AppointmentList']">
         Appointments
      </button>
+     <button mat-menu-item (click)="logout()">Logout</button>
+     
 
 </mat-menu>

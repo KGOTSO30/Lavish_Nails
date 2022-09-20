@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterModule, Router} from '@angular/router'
-import { AuthenticationService } from './services/authentication.service';
+
 import { AuthService } from "src/app/services/auth.service";
 import { Observable } from 'rxjs';
 import { Client} from './shared/client'
+import { UsersService } from 'src/app/services/user.service';
 
 // v9 compat packages are API compatible with v8 code
 import firebase from 'firebase/compat/app';
@@ -17,19 +18,20 @@ import 'firebase/compat/firestore';
 })
 export class AppComponent {
  // currentUser!: Observable<firebase.users | null>;
-  
-  constructor(public authService: AuthService, private router: Router){
+ 
+ user$ = this.usersService.currentUserProfile$;
+
+  constructor(private usersService: UsersService, public authService: AuthService, private router: Router){
 
   }
 
   
   logout() {
     
-    /*
-    this.authService.SignOut().pipe().subscribe(() => {
-      this.router.navigate(['']);
-    });
-    */
+    this.authService.logout();
+    this.router.navigate(['']);
+
+    
   }
   
 

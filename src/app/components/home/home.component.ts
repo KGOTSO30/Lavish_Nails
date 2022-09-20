@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
@@ -8,15 +8,15 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-user$ = this.authService.currentUser$;
 
-  constructor(private authService: AuthenticationService, private router: Router) { }
+
+  constructor( private router: Router) { }
 
   ngOnInit(): void {
   }
 
   book(){
-    this.router.navigateByUrl('/landing');
+    this.router.navigateByUrl('/pokemon');
   }
 
 }

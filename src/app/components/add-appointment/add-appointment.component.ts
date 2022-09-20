@@ -12,8 +12,11 @@ export class AddAppointmentComponent implements OnInit {
   appointment: Appointment = new Appointment();
   submitted = false;
   selected!: Date | null;
+  
 
-  constructor(private appointmentService: CrudService) { }
+  constructor(private appointmentService: CrudService) {
+    this.appointment.appointmentDate = this.selected;
+   }
 
   ngOnInit(): void {
   }

@@ -1,10 +1,11 @@
 export interface Client {
-    clientId: string;
-   // firstName: string;
-   // lastName: string;
-    email: string;
-   // phoneNumber: Number;
+    uid: string;
+    firstName?: string;
+    lastName?: string;
+    email?: string;
+    phoneNumber?: string;
    // status: boolean;
-   // completedAppointments: Number;
-   // totalSpend: Number;
+   completedAppointments?: string;
+    totalSpend?: string;
+    photoURL?: string;
 }

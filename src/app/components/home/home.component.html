@@ -1,11 +1,18 @@
-<h1 *ngIf="user$ |async as user">Welcome to your home page,  {{user.displayName}}!</h1>
+<h1 >Welcome to your home page</h1>
 <div>
     <button mat-raised-button color="primary" (click)="book()">
-     Book now
+     test 
   </button>
 
-<button mat-raised-button color="primary" [routerLink]="['/add-appointment']">
+<button mat-raised-button color="primary" [routerLink]="['/book-now']">
     Book now 2
  </button>
 
+ <button mat-raised-button color="accent" [routerLink]="['/salon']">
+  ServiceList
+</button>
+
+<button mat-raised-button color="accent" [routerLink]="['/report-test']">
+  report-test
+</button>
   </div>

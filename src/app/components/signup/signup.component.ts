@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, NonNullableFormBuilder, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+
+import { switchMap } from 'rxjs/operators';
+
+import { UsersService } from '../../services/user.service';
 
 import { AuthService } from "../../services/auth.service";
+import { user } from '@angular/fire/auth';
 
 
 export function passwordsMatchValidator(): ValidatorFn {
@@ -28,28 +32,47 @@ export function passwordsMatchValidator(): ValidatorFn {
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+//signUpForm = new FormGroup({
 
-  signUpForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    email: new FormControl('',[Validators.email, Validators.required]),
-    password: new FormControl ('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required)
+  signUpForm = this.fb.group({
+   // uid: new FormControl(''),
+  //  email: new FormControl('',[Validators.email, Validators.required]),
+  email: ['', [Validators.required, Validators.email]],
+  //  firstName: new FormControl('', Validators.required),
+  firstName: ['', Validators.required],
+  //  lastName: new FormControl('', Validators.required),
+  lastName: ['', Validators.required],
+  //  password: new FormControl ('', Validators.required),
+  password: ['', Validators.required],
+  //  phoneNumber: new FormControl ('', Validators.required),
+  phoneNumber: ['', Validators.required],
+  //  confirmPassword: new FormControl('', Validators.required),
+  confirmPassword: ['', Validators.required],
+  //  completedAppointments: new FormControl(''),
+  //  totalSpend: new FormControl(''),
   },
   { validators: passwordsMatchValidator() }
+ 
 
   );
 
   constructor(
+    private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
-    private toast: HotToastService
+    private toast: HotToastService,
+    private fb: NonNullableFormBuilder
   ) { }
 
   ngOnInit(): void {
   }
 
-  get name() {
-    return this.signUpForm.get('name');
+  get firstName() {
+    return this.signUpForm.get('firstName');
+
+  }
+  get lastName() {
+    return this.signUpForm.get('lastName');
 
   }
 
@@ -67,17 +90,38 @@ export class SignupComponent implements OnInit {
     
   }
 
-  submit(){
-    if (!this.signUpForm.valid) return;
-
-    const { name, email, password} = this.signUpForm.value;
-    this.authService.SignUp(name!, email!, password!)
+  get phoneNumber() {
+    return this.signUpForm.get('phoneNumber');
     
-     
-        this.router.navigate(['home']);
+  }
+
+  submit(){
+    const {firstName, lastName, email, password, phoneNumber, /* completedAppointments, totalSpend */} = this.signUpForm.value;
+  
+    if (!this.signUpForm.valid ) {return;}
+
+     this.authService
+    .signUp( email!, password!)
+    .pipe(
+      switchMap(({ user: {uid} }) => 
+        this.usersService.addUser({
+          uid, email, firstName, lastName, phoneNumber })
+      ),
+      this.toast.observe({
+        success: 'Congrats! You are all signed up',
+        loading: 'Signing up...',
+        error: ({ message }) => `${message}`,
+      })
+    )
+    .subscribe(() => {
+      this.router.navigate(['/home']);
+    });
+    
+   // , lastName, phoneNumber,completedAppointments, totalSpend
+        
     
     
   }
 
-
+  
 }

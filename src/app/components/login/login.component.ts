@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from 'src/app/services/authentication.service';
+
 
 import { AuthService } from "../../services/auth.service";
 
@@ -48,12 +48,17 @@ export class LoginComponent implements OnInit {
       return;
     }
     const { email, password } = this.loginForm.value;
-    this.authService.SignIn( email!, password!)
-  }
-  
+    this.authService.login( email!, password!)
+
+   
+      if (true) {
+        this.router.navigate(['/home']);
+      }
+    
 
 }
 
+}
 
 /*
 .pipe(

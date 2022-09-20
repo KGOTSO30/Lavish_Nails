@@ -33,7 +33,7 @@ export class AppointmentListComponent implements OnInit {
     this.appoinmentService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c => 
-          ({id: c.payload.doc.data(), ...c.payload.doc.data()})
+          ({id: c.payload.doc.id, ...c.payload.doc.data()})
         )
       )
     ).subscribe(data => {

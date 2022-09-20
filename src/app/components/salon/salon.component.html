@@ -1,0 +1,126 @@
+<p>salon works!</p>
+<button mat-raised-button color="primary" [routerLink]="['/home']">
+    back home
+ </button>
+
+
+  
+
+<div class="col-md-6">
+    <h4>Services List</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let salon of salonServices; let i = index"
+        [class.active]="i == currentIndex"
+        (click)="setSelectedService(salon, i)"
+      >
+        {{ salon.name}}
+      </li>
+    </ul>
+  </div>
+
+
+  <div >
+    <div class="col-md-6">
+      <h4>Acrylic Sales</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let sales of salonSales;"
+        >
+          {{ sales.TotalSales}}
+        </li>
+      </ul>
+    </div>
+  
+  
+    <div class="col-md-6">
+      <h4>Polygel Sales</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let PGsales of polygelSales;"
+        >
+          {{ PGsales.TotalSales}}
+        </li>
+      </ul>
+    </div>
+  
+  
+    <div class="col-md-6">
+      <h4>Rubberbase Sales</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let RBsales of rubberbaseSales;"
+        >
+          {{ RBsales.TotalSales}}
+        </li>
+      </ul>
+    </div>
+  
+  
+   </div>
+
+<!--
+ <div class="col-md-6">
+    <h4>Acrylic Sales</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let sales of salonSales;"
+      >
+        {{ sales.TotalSales}}
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="col-md-6">
+    <h4>Polygel Sales</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let PGsales of polygelSales;"
+      >
+        {{ PGsales.TotalSales}}
+      </li>
+    </ul>
+  </div>
+
+
+  <div class="col-md-6">
+    <h4>Rubberbase Sales</h4>
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let RBsales of rubberbaseSales;"
+      >
+        {{ RBsales.TotalSales}}
+      </li>
+    </ul>
+  </div>
+
+-->
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <button mat-raised-button color="primary" (click)="refreshList()">
+   Get Sales
+ </button>
+
+ 

@@ -1,0 +1,38 @@
+<div class="appointment-list item-list mb-3">
+    <div class="spinner" *ngIf="showSpinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  
+    <div class="app-item col media py-3 border-bottom" [attr.data-list-id]="appointment.id"
+         *ngIf="appointment">
+      <div class="app-head w-100">
+        <h2 class="app-name"  > {{appointment.name}}  </h2>
+  
+        <div class="app-description">
+          <span class="apt-date ml-auto text-secondary">Appointment Date: {{appointment.appointmentDate.seconds * 1000 }}</span>
+          <div class="text-primary">{{appointment.email}}</div>
+          <div class="" >{{appointment.age}} years old</div>
+  
+          <div class="apt-notes p-3 bg-light my-3"  >{{appointment.appointmentNotes}}</div>
+          <!-- info -->
+        </div>
+        <button class="btn btn-primary" routerLink="/dashboard">Back to Dashboard</button>
+      </div>
+  
+  
+  
+  
+    </div><!-- item -->
+  </div>
+  
+  <!-- appointment-list
+  
+  <span [ngSwitch]="appointment.gender" on="appointment.gender">
+         
+          </span>
+
+          |  date:'d MMMM yyyy' 
+  
+  -->
