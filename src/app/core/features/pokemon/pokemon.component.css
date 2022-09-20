@@ -8,7 +8,7 @@
     }
 
 .container {
-    margin: 50px;
+    margin: 50px; justify-content: center;
 
   }  .nav {
         display: flex;

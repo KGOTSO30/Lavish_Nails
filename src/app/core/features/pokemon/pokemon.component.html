@@ -15,11 +15,16 @@
           (pokemonEmitter)="selectPokemon($event)"
         ></app-list>
       </div>
-      <app-detail
-        [pokemon]="selectedPokemon"
-        *ngIf="selectedPokemon"
-        (deletePokemon)="deletePokemon()"
-        (updatePokemon)="updatePokemon()"
-      ></app-detail>
+     
     </div>
-  </div>
+    <div>
+
+      <app-detail
+      [pokemon]="selectedPokemon"
+      *ngIf="selectedPokemon"
+      (deletePokemon)="deletePokemon()"
+      (updatePokemon)="updatePokemon()"
+    ></app-detail>
+    </div>
+
+</div>
