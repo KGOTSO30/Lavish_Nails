@@ -55,6 +55,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SalesComponent } from './components/sales/sales.component';
 import { CancellationsComponent } from './components/cancellations/cancellations.component';
+import { HeaderComponent } from './components/shared2/header/header.component';
+import { FooterComponent } from './components/shared2/footer/footer.component';
+import { AppointmentCartComponent } from './components/appointment-cart/appointment-cart.component';
+import { NavComponent } from './components/shared2/nav/nav.component';
+import { FiltersComponent } from './components/appointment-cart/filters/filters.component';
+import { ProductListComponent } from './components/appointment-cart/product-list/product-list.component';
+import { CartComponent } from './components/appointment-cart/cart/cart.component';
+import { CartItemComponent } from './components/appointment-cart/cart/cart-item/cart-item.component';
+import { ProductItemComponent } from './components/appointment-cart/product-list/product-item/product-item.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +86,15 @@ import { CancellationsComponent } from './components/cancellations/cancellations
     ListComponent,
     SalesComponent,
     CancellationsComponent,
+    HeaderComponent,
+    FooterComponent,
+    AppointmentCartComponent,
+    NavComponent,
+    FiltersComponent,
+    ProductListComponent,
+    CartComponent,
+    CartItemComponent,
+    ProductItemComponent,
   ],
   imports: [
     BrowserModule,
