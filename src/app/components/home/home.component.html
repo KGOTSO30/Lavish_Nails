@@ -1,6 +1,14 @@
 <h1 >Welcome to your home page</h1>
 <div>
-    <button mat-raised-button color="primary" (click)="book()">
+  
+<button mat-raised-button color="accent" [routerLink]="['/landing']">
+  serve
+</button>
+  </div>
+
+  <!-- 
+    TODO: ADD THESE BUTTONS TO THE ADMIN HOMEPAGE INSTEAD OF CLIENT 
+      <button mat-raised-button color="primary" (click)="book()">
      test 
   </button>
 
@@ -15,7 +23,4 @@
 <button mat-raised-button color="accent" [routerLink]="['/report-test']">
   report-test
 </button>
-<button mat-raised-button color="accent" [routerLink]="['/landing']">
-  serve
-</button>
-  </div>
+  -->

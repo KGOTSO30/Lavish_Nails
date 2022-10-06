@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { CartItem } from '../models/cart-item';
 import { Product, Mt } from '../models/product';
+import { CartService } from '../services/cart.service';
 import { MessengerService } from '../services/messenger.service';
 
 type Item = {
@@ -26,7 +28,10 @@ export class CartComponent implements OnInit {
   
   cartTotal = 0
   //product!: Product;
-  constructor(private msg: MessengerService) { }
+  constructor(
+    private msg: MessengerService,
+    private cartService: CartService,
+    ) { }
 
   ngOnInit() {
 
@@ -76,7 +81,24 @@ export class CartComponent implements OnInit {
   }
 
   get cartItemsLength() { return (this.cartItems && this.cartItems.length) ?  this.cartItems.length : 0 }
+  handleSubscription() {
+    this.msg.getMsg().subscribe((product: any) => {
+      this.loadCartItems();
+    })
+  }
   
+  loadCartItems() {
+    this.cartService.getCartItems().subscribe((items: CartItem[]) => {
+      this.cartItems = items;
+      this.calcCartTotal();
+    })
+  }
 
+  calcCartTotal() {
+    this.cartTotal = 0
+    this.cartItems.forEach(item => {
+      this.cartTotal += (item.qty * item.price)
+    })
+  }
 
 }
