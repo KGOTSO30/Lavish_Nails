@@ -8,7 +8,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { PokemonModule } from "./core/features/pokemon/pokemon.module";
 //import {NgxChartsModule} from '@swimlane'
-
+import { HttpClientModule } from '@angular/common/http';
 
 import {
   HighchartsChartModule
@@ -116,6 +116,7 @@ import { ProductItemComponent } from './components/appointment-cart/product-list
     NgbModule,
     PokemonModule,
     MatTableModule,
+    HttpClientModule ,
     
     
    

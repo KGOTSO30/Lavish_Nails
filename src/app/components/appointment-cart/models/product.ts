@@ -14,3 +14,10 @@ export class Product {
 
     }
 }
+export class Mt {
+    id!: number;
+    productId!: number; 
+    productName!: string;
+    qty!: number;
+    price!: number;
+  }

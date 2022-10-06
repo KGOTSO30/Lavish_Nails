@@ -2,8 +2,9 @@
     <img class="bd-placeholder-img card-img-top" width="100%" [src]= "productItem.imageUrl" />
     <div class="card-body">
         <p class="card-text">
-            <strong >{{productItem.price| currency: 'R'}}</strong>
+            <strong >{{ productItem.name }}</strong>
         </p>
+        <p>{{productItem.price| currency: 'R'}}</p>
       <p class="card-text">{{ productItem.description }}</p>
       <div class="d-flex justify-content-between align-items-center">
         <div class="btn-group">
@@ -11,7 +12,7 @@
           type="button" 
           class="btn btn-sm btn-primary product-btn"
           (click) = "handleAddToCart()"
-          >Add to cart</button>
+          >Add to session</button>
           <button type="button" class="btn btn-sm btn-outline-secondary product-btn">View details</button>
         </div>
      

@@ -8,7 +8,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
-import { concatMap, from, Observable, of, switchMap } from 'rxjs';
+import { BehaviorSubject, concatMap, from, Observable, of, switchMap } from 'rxjs';
 import {
   Auth,
   signInWithEmailAndPassword,
@@ -21,6 +21,7 @@ import {
   providedIn: 'root',
 })
 export class AuthService {
+ // public isLoggedIn$: BehaviorSubject<boolean>;
   userData: any; // Save logged in user data
   
   currentUser$ = authState(this.auth);
@@ -48,22 +49,48 @@ export class AuthService {
       }
     });
     
+   // const isLoggedIn = localStorage.getItem('loggedIn') === 'true';
+    //this.isLoggedIn$ = new BehaviorSubject(isLoggedIn);
+    
     
   }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
 signUp(email: string, password: string): Observable<UserCredential> {
+  this.router.navigate(['login']);
   return from(createUserWithEmailAndPassword(this.auth, email, password));
-}
-
-login(email: string, password: string): Observable<any> {
-  return from(signInWithEmailAndPassword(this.auth, email, password));
   
 }
 
-logout(): Observable<any> {
-  return from(this.auth.signOut());
+login(email: string, password: string) {
+  //localStorage.setItem('loggedIn', 'true');
+  //this.isLoggedIn$.next(true);
+ // return from(signInWithEmailAndPassword(this.auth, email, password));
+  
+    return this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['home']);
+        });
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+  
+ 
+}
+
+logout(){
+  //localStorage.setItem('loggedIn', 'false');
+  //this.isLoggedIn$.next(false);
+  return this.afAuth.signOut().then(() => {
+    localStorage.removeItem('user');
+    this.router.navigate(['login']);
+  });
+ // return from(this.auth.signOut());
+ 
 }
 
 
@@ -78,18 +105,18 @@ logout(): Observable<any> {
 
  // Sign in with Google
  GoogleAuth() {
-  return this.AuthLogin(new GoogleAuthProvider());
+  return this.AuthLogin(new auth.GoogleAuthProvider());
 }
-// Auth logic to run auth providers
-
 AuthLogin(provider:any) {
   return this.afAuth
     .signInWithPopup(provider)
     .then((result) => {
-      console.log('You have been successfully logged in!');
+      this.ngZone.run(() => {
+        this.router.navigate(['dashboard']);
+      });
     })
     .catch((error) => {
-      console.log(error);
+      window.alert(error);
     });
 }
 
