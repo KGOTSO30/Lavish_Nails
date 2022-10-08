@@ -1,5 +1,5 @@
 # Lavish
-
+For testing purposes please commit only to the testing branch
 
 Run `ng serve` for a development server.
 
