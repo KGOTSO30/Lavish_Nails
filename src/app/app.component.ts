@@ -19,7 +19,7 @@ import 'firebase/compat/firestore';
 export class AppComponent {
  // currentUser!: Observable<firebase.users | null>;
  
- user$ = this.usersService.currentUserProfile$;
+ //user$ = this.usersService.currentUserProfile$;
 
   constructor(private usersService: UsersService, public authService: AuthService, private router: Router){
 
@@ -35,8 +35,5 @@ export class AppComponent {
   }
   
 
-  Book() {
-    
-      this.router.navigate(['/book-now']);
-    }
+ 
 }

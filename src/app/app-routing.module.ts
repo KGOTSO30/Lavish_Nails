@@ -25,6 +25,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
+import { AuthGuard } from './services/auth.guard';
 
 //import { ProfileComponent } from './components/profile/profile.component';
 
@@ -43,7 +44,7 @@ const routes: Routes = [
   {
     path: 'landing',
     component: LandingComponent,
-    ...canActivate(redirectUnauthorizedToLogin),
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',

@@ -81,6 +81,7 @@ export class CartComponent implements OnInit {
   }
 
   get cartItemsLength() { return (this.cartItems && this.cartItems.length) ?  this.cartItems.length : 0 }
+  
   handleSubscription() {
     this.msg.getMsg().subscribe((product: any) => {
       this.loadCartItems();

@@ -20,7 +20,7 @@ export class ProfileComponent implements OnInit {
   profileForm = this.fb.group({
     uid: [''],
     email: [''],
-    firstName: [''],
+    displayName: [''],
     lastName: [''],
     phoneNumber: [''],
    

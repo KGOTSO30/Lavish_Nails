@@ -1,6 +1,6 @@
 export interface UserProfile {
     uid: string;
-    firstName?: string;
+    displayName?: string;
     lastName?: string;
     email?: string;
     phoneNumber?: string;

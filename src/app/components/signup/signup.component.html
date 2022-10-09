@@ -2,8 +2,8 @@
     <h1>Set Up Your Lavish Account!</h1>
     <form [formGroup] ="signUpForm" (ngSubmit)="submit()">
         <mat-form-field>
-            <input matInput placeholder="first Name" formControlName="firstName" />
-            <mat-error *ngIf="firstName?.errors?.['required']">
+            <input matInput placeholder="first Name" formControlName="displayName" />
+            <mat-error *ngIf="displayName?.errors?.['required']">
                 First Name is required
             </mat-error>
 

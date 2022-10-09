@@ -1,6 +1,7 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Client} from '../shared/client'
 import * as  auth from '@angular/fire/auth';
+//import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { GoogleAuthProvider } from 'firebase/auth';
 import {
@@ -23,6 +24,7 @@ import {
 export class AuthService {
  // public isLoggedIn$: BehaviorSubject<boolean>;
   userData: any; // Save logged in user data
+  user$: Observable<any>;
   
   currentUser$ = authState(this.auth);
 
@@ -34,6 +36,16 @@ export class AuthService {
     public router: Router,
     public ngZone: NgZone // NgZone service to remove outside scope warning
   ) {
+
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        if (user) {
+          return this.afs.doc<Client>(`users/${user.uid}`).valueChanges();
+        } else {
+          return of(null);
+        }
+      })
+    );
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
 
@@ -112,7 +124,7 @@ AuthLogin(provider:any) {
     .signInWithPopup(provider)
     .then((result) => {
       this.ngZone.run(() => {
-        this.router.navigate(['dashboard']);
+        this.router.navigate(['home']);
       });
     })
     .catch((error) => {
@@ -127,13 +139,36 @@ SetUserData(user: any) {
   const userData: Client = {
     uid: user.uid,
     email: user.email,
-   // displayName: user.displayName,
+    displayName: user.displayName,
     photoURL: user.photoURL,
   //01  emailVerified: user.emailVerified,
   };
   return userRef.set(userData, {
     merge: true,
   });
+}
+///////////////////////////////////////////////////////////////////////////////////////
+
+async googleSignin() {
+  const provider = new auth.GoogleAuthProvider();
+  const credential = await this.afAuth.signInWithPopup(provider);
+  this.router.navigate(['home']);
+  return this.updateUserData(credential.user);
+}
+
+private updateUserData(user: any) {
+  // Sets user data to firestore on login
+  const userRef: AngularFirestoreDocument<Client> = this.afs.doc(`users/${user.uid}`);
+
+  const data = {
+    uid: user.uid,
+    email: user.email,
+    displayName: user.displayName,
+    photoURL: user.photoURL
+  };
+
+  return userRef.set(data, { merge: true });
+
 }
 
 }

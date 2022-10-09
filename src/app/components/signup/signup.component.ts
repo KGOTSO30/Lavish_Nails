@@ -39,7 +39,7 @@ export class SignupComponent implements OnInit {
   //  email: new FormControl('',[Validators.email, Validators.required]),
   email: ['', [Validators.required, Validators.email]],
   //  firstName: new FormControl('', Validators.required),
-  firstName: ['', Validators.required],
+  displayName: ['', Validators.required],
   //  lastName: new FormControl('', Validators.required),
   lastName: ['', Validators.required],
   //  password: new FormControl ('', Validators.required),
@@ -67,8 +67,8 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  get firstName() {
-    return this.signUpForm.get('firstName');
+  get displayName() {
+    return this.signUpForm.get('displayName');
 
   }
   get lastName() {
@@ -96,7 +96,7 @@ export class SignupComponent implements OnInit {
   }
 
   submit(){
-    const {firstName, lastName, email, password, phoneNumber, /* completedAppointments, totalSpend */} = this.signUpForm.value;
+    const {displayName, lastName, email, password, phoneNumber, /* completedAppointments, totalSpend */} = this.signUpForm.value;
   
     if (!this.signUpForm.valid ) {return;}
 
@@ -105,7 +105,7 @@ export class SignupComponent implements OnInit {
     .pipe(
       switchMap(({ user: {uid} }) => 
         this.usersService.addUser({
-          uid, email, firstName, lastName, phoneNumber })
+          uid, email, displayName, lastName, phoneNumber })
       ),
       this.toast.observe({
         success: 'Congrats! You are all signed up',
