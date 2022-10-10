@@ -9,6 +9,11 @@ import {
   HighchartsChartModule
 } from "highcharts-angular";
 
+  
+import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { AdminTabComponent } from './components/admin/admin-tab/admin-tab.component';
+
 import { SalesComponent } from './components/sales/sales.component';
 import { ListComponent } from './components/book-now/list/list.component';
 import { ProfileComponent } from './components/profile/profile.component'; 
@@ -20,6 +25,7 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookNowComponent } from './components/book-now/book-now.component';
 import { LandingComponent } from './components/landing/landing.component';
+
 import {
   canActivate,
   redirectLoggedInTo,
@@ -95,6 +101,18 @@ const routes: Routes = [
   {
     path: 'sales',
     component: SalesComponent,
+  }, 
+  {
+    path: 'admin-dashboard',
+    component: AdminDashboardComponent,
+  }, 
+  {
+    path: 'admin-login',
+    component: AdminLoginComponent,
+  }, 
+  {
+    path: 'admin',
+    component: AdminTabComponent,
   }, 
 
 ];

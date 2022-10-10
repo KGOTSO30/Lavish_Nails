@@ -48,6 +48,11 @@ import { MenuComponent } from './components/menu/menu/menu.component';
 import { MenuCategoryComponent } from './components/menu/menu-category/menu-category.component';
 import { MenuCategoryItemComponent } from './components/menu/menu-category-item/menu-category-item.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import {MatTabsModule} from '@angular/material/tabs'; 
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDividerModule } from '@angular/material/divider';
+
+
 import { AddComponent } from './components/book-now/add/add.component';
 import { ListComponent } from './components/book-now/list/list.component';
 
@@ -64,6 +69,13 @@ import { ProductListComponent } from './components/appointment-cart/product-list
 import { CartComponent } from './components/appointment-cart/cart/cart.component';
 import { CartItemComponent } from './components/appointment-cart/cart/cart-item/cart-item.component';
 import { ProductItemComponent } from './components/appointment-cart/product-list/product-item/product-item.component';
+import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
+import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
+import { AdminTabComponent } from './components/admin/admin-tab/admin-tab.component';
+import { AdminCartsComponent } from './components/admin/admin-carts/admin-carts.component';
+import { AdminBookingComponent } from './components/admin/admin-booking/admin-booking.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { AdminReportsComponent } from './components/admin/admin-reports/admin-reports.component';
 
 @NgModule({
   declarations: [
@@ -95,6 +107,13 @@ import { ProductItemComponent } from './components/appointment-cart/product-list
     CartComponent,
     CartItemComponent,
     ProductItemComponent,
+    AdminLoginComponent,
+    AdminDashboardComponent,
+    AdminTabComponent,
+    AdminCartsComponent,
+    AdminBookingComponent,
+    AdminUsersComponent,
+    AdminReportsComponent,
   ],
   imports: [
     BrowserModule,
@@ -117,6 +136,9 @@ import { ProductItemComponent } from './components/appointment-cart/product-list
     PokemonModule,
     MatTableModule,
     HttpClientModule ,
+    MatTabsModule,
+    MatSidenavModule,
+    MatDividerModule,
     
     
    

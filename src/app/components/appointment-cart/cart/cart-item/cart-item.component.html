@@ -1,4 +1,11 @@
-<div class="CART-ITEM">
+<div class="CART-ITEM" >
     <span>{{cartItem.productName}}</span> x <span>{{cartItem.qty}}</span>: 
     <strong>{{cartItem.qty * cartItem.price | currency:'R'}} </strong>
+</div>
+
+<div >
+    <button class="btn btn-danger" 
+    (click) = "removeItem(cartItem)"
+    ><i class="fas fa-trash"></i></button>
+    
 </div>

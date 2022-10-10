@@ -20,4 +20,5 @@ export class Mt {
     productName!: string;
     qty!: number;
     price!: number;
+    uid!: string;
   }

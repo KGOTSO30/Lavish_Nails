@@ -3,7 +3,7 @@ import { Product } from './product';
 export class CartItem {
     
 
-
+  uid!: string;
   id: number;
   productId: number;
   productName: string;

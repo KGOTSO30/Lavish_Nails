@@ -19,12 +19,7 @@ let item: Item | null = null;
 })
 export class CartComponent implements OnInit {
  public cartItems: Mt[] = [];
-  /*    {id:1, productId: 1, productName:'Overlay', qty:2, price:320},
-   {id:2, productId: 2, productName:'French/Ombre', qty:1, price:300},
-   {id:3, productId: 3, productName:'Nail Art', qty:1, price:100},
-    {id:4, productId: 4, productName:'FullSet', qty:4, price:90},    */
- // ];
-
+  
   
   cartTotal = 0
   //product!: Product;
@@ -35,18 +30,43 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
 
-    this.msg.getMsg().subscribe((product: any) => {
-      this.addProductToCart(product)
-    })
+    this.handleSubscription();
+    this.loadCartItems();
 
   }
  
  
+  get cartItemsLength() { return (this.cartItems && this.cartItems.length) ?  this.cartItems.length : 0 }
+  
+  handleSubscription() {
+    this.msg.getMsg().subscribe((product: any) => {
+      this.loadCartItems();
+    })
+  }
+  
+  loadCartItems() {
+    this.cartService.getCartItems().subscribe((items: CartItem[]) => {
+      this.cartItems = items;
+      this.calcCartTotal();
+    })
+  }
+
+  calcCartTotal() {
+    this.cartTotal = 0
+    this.cartItems.forEach(item => {
+      this.cartTotal += (item.qty * item.price)
+    })
+  }
+
+ 
+}
 
 
 
 
 
+
+/*
 
   addProductToCart(product: Product) {
     let cartContent = new Mt();
@@ -79,27 +99,4 @@ export class CartComponent implements OnInit {
       this.cartTotal += (item.qty * item.price)
     })
   }
-
-  get cartItemsLength() { return (this.cartItems && this.cartItems.length) ?  this.cartItems.length : 0 }
-  
-  handleSubscription() {
-    this.msg.getMsg().subscribe((product: any) => {
-      this.loadCartItems();
-    })
-  }
-  
-  loadCartItems() {
-    this.cartService.getCartItems().subscribe((items: CartItem[]) => {
-      this.cartItems = items;
-      this.calcCartTotal();
-    })
-  }
-
-  calcCartTotal() {
-    this.cartTotal = 0
-    this.cartItems.forEach(item => {
-      this.cartTotal += (item.qty * item.price)
-    })
-  }
-
-}
+*/
