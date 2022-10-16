@@ -1,7 +1,64 @@
 mat-toolbar {
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
+  height: 100px;
 }
 
-.content {
-    padding: 2px;
+.nav-items {
+  display: flex;
+  justify-content: space-between;
+  width: 600px;
+}
+
+.book-button,
+.login-button {
+  font-size: 18px;
+  border: 1px black;
+}
+
+.book-button {
+  background: rgba(0, 0, 0, 0.62);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  color: #E2B2A2;
+}
+
+.login-button {
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid #000000;
+  border-radius: 20px;
+}
+
+.nav-buttons {
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-item {
+  font-size: 18px;
+}
+
+.prompt {
+  font-family: Grape Nuts;
+  font-size: 50px;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  padding-left: 10px;
+}
+
+.prompt-button {
+  border: 2px solid black;
+  border-radius: 0px;
+  width: fit-content;
+  font-family: Istok Web;
+  font-weight: 400px;
+  margin-top: 40px;
+  margin-left: 100px;
+}
+
+.footer {
+  background-color: #F1E1DC;
+  height: 150px;
 }
