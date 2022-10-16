@@ -1,7 +1,7 @@
-
+<h1 *ngIf="user$ |async as user">Welcome to your home page,  {{user.displayName}}!</h1>
 <div>
 <<<<<<< Updated upstream
-  
+
 <button mat-raised-button color="accent" [routerLink]="['/booking-payment']">
   serve
 </button>
@@ -73,11 +73,4 @@
     Book now 2
  </button>
 
- <button mat-raised-button color="accent" [routerLink]="['/salon']">
-  ServiceList
-</button>
-
-<button mat-raised-button color="accent" [routerLink]="['/report-test']">
-  report-test
-</button>
-  -->
+  </div>
