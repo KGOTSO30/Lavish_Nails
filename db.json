@@ -37,7 +37,16 @@
     }
   ],
   "cart": [
-   
+    {
+      "product": {
+        "id": 1,
+        "name": "Overlay",
+        "description": "",
+        "imageUrl": "https://image-prod.iol.co.za/square/670/7-easy-ways-to-remove-acrylics-at-home?source=https://xlibris.public.prod.oc.inl.infomaker.io:8443/opencontent/objects/f8ba66dd-62f7-5d76-9e85-10be124f56bf&webp=true",
+        "price": 260
+      },
+      "id": 1
+    }
   ],
   "posts": [
     {

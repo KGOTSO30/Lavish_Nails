@@ -6,3 +6,91 @@
 </div>
 
 -->
+<button >Update</button>
+<form #addDataForm="ngForm" (ngSubmit)="setData(addDataForm.value);" novalidate>
+  <mat-error *ngIf="savedChanges">
+      Data is saved.
+      <label class="small-spacer"></label>
+     
+  </mat-error>
+  <div *ngIf="!savedChanges">
+   
+      <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
+      <mat-card-actions align="start">
+          <button type="submit" mat-raised-button [disabled]="!addDataForm.valid" color="primary">Add</button>
+          <button type="reset" (click)="this.addDataForm.reset();" mat-raised-button [disabled]="!addDataForm.valid" color="primary">Clear</button>
+          <span class="med-spacer"></span>
+          
+      </mat-card-actions>
+  
+      <h2>Services</h2>
+      <ul class="heroes">
+        <li *ngFor="let hero of heroes">
+          <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+            <span class="badge">{{hero.id}}</span>
+            <span class="name">{{hero.name}}</span>
+          </button>
+        </li>
+      </ul>
+      
+      <div *ngIf="selectedHero">
+        <h2>{{selectedHero.name | uppercase}} Details</h2>
+        <div>id: {{selectedHero.id}}</div>
+        <div>
+          <label for="hero-name">Hero name: </label>
+          <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
+        </div>
+      </div>
+      
+      <mat-form-field class="example-form">
+        <input matInput [matDatepicker]="pickerfromdt" placeholder="Appointment Date" id="fromdt" name="AppointmentDate" #fromdt="ngModel" [ngModel]="currentDate" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
+        <mat-datepicker #pickerfromdt></mat-datepicker>
+    </mat-form-field>
+  </div>
+</form>
+
+<!-- edit mode -->
+<ng-template #showEditMode>
+  <form #editDataForm="ngForm" (ngSubmit)="updateData(editDataForm.value);" novalidate>
+      <input type="hidden" name="_id" id="_id" [ngModel]="myDocData._id" required>
+      <mat-error *ngIf="savedChanges">
+          Data is saved.
+          <label class="small-spacer"></label>
+         
+      </mat-error>
+      <div *ngIf="!savedChanges">
+        
+          <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
+          <mat-card-actions align="start">
+              <button type="submit" mat-raised-button [disabled]="!this.editDataForm.valid || this.editDataForm.pristine" color="primary">Update</button>
+              <span class="med-spacer"></span>
+           
+          </mat-card-actions>
+          <h2>Services</h2>
+          <ul class="heroes">
+            <li *ngFor="let hero of heroes">
+              <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+                <span class="badge">{{hero.id}}</span>
+                <span class="name">{{hero.name}}</span>
+              </button>
+            </li>
+          </ul>
+          
+          <div *ngIf="selectedHero">
+            <h2>{{selectedHero.name | uppercase}} Details</h2>
+            <div>id: {{selectedHero.id}}</div>
+            <div>
+              <label for="hero-name">Hero name: </label>
+              <input id="hero-name" [(ngModel)]="myDocData.name" placeholder="name">
+            </div>
+          </div>
+
+          <mat-form-field class="example-form">
+            <input matInput [matDatepicker]="pickerfromdt" placeholder="Appointment Date" id="fromdt" name="AppointmentDate" #fromdt="ngModel" [ngModel]="myDocData.AppointmentDate" required>
+            <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
+            <mat-datepicker #pickerfromdt></mat-datepicker>
+        </mat-form-field>
+      </div>
+  </form>
+</ng-template>

@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
@@ -51,12 +51,21 @@ import { MatNativeDateModule } from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs'; 
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
+//import { MbscModule } from '@mobiscroll/angular';
+//import { MbscModule, MbscProvider } from "ack-angular-mobiscroll";
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+
 
 
 import { AddComponent } from './components/book-now/add/add.component';
 import { ListComponent } from './components/book-now/list/list.component';
 
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+//import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SalesComponent } from './components/sales/sales.component';
 import { CancellationsComponent } from './components/cancellations/cancellations.component';
@@ -76,6 +85,8 @@ import { AdminCartsComponent } from './components/admin/admin-carts/admin-carts.
 import { AdminBookingComponent } from './components/admin/admin-booking/admin-booking.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { AdminReportsComponent } from './components/admin/admin-reports/admin-reports.component';
+import { AppBookingComponent } from './components/app-booking/app-booking.component';
+import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
 
 @NgModule({
   declarations: [
@@ -114,6 +125,8 @@ import { AdminReportsComponent } from './components/admin/admin-reports/admin-re
     AdminBookingComponent,
     AdminUsersComponent,
     AdminReportsComponent,
+    AppBookingComponent,
+    AppBookingPaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -139,6 +152,11 @@ import { AdminReportsComponent } from './components/admin/admin-reports/admin-re
     MatTabsModule,
     MatSidenavModule,
     MatDividerModule,
+    MatPaginatorModule,
+   /*  NgxMatNativeDateModule,
+    NgxMatDatetimePickerModule,
+
+    NgxMatTimepickerModule, */
     
     
    
@@ -156,7 +174,8 @@ import { AdminReportsComponent } from './components/admin/admin-reports/admin-re
   ],
   exports: [PokemonModule],
   providers: [AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
 

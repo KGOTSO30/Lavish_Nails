@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { library} from '@fortawesome/fontawesome-svg-core';
+//import { library} from '@fortawesome/fontawesome-svg-core';
 //import {faTimes, faPlus, faCalendarPlus, faMugHot} from '@fortawesome/free-solid-svg-icons';
 import { without } from 'lodash';
 

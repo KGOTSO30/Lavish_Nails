@@ -25,6 +25,8 @@ import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
 import { BookNowComponent } from './components/book-now/book-now.component';
 import { LandingComponent } from './components/landing/landing.component';
+import { MenuComponent } from './components/menu/menu/menu.component';
+import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
 
 import {
   canActivate,
@@ -32,6 +34,7 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/auth-guard';
 import { AuthGuard } from './services/auth.guard';
+import { AuthGuardAdminService } from './services/auth-guard-admin.service';
 
 //import { ProfileComponent } from './components/profile/profile.component';
 
@@ -88,6 +91,10 @@ const routes: Routes = [
   },
 
   {
+    path: 'menu',
+    component: MenuComponent,
+  },
+  {
     path: 'report-test',
     component: ReportTestComponent,
   },
@@ -105,6 +112,7 @@ const routes: Routes = [
   {
     path: 'admin-dashboard',
     component: AdminDashboardComponent,
+    canActivate: [AuthGuardAdminService]
   }, 
   {
     path: 'admin-login',
@@ -113,7 +121,12 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminTabComponent,
+    canActivate: [AuthGuardAdminService]
   }, 
+  {
+    path: 'booking-payment',
+    component: AppBookingPaymentComponent
+  }
 
 ];
 
