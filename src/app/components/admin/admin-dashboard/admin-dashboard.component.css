@@ -6,12 +6,13 @@ mat-sidenav {
     margin: 16px;
     width: 200px;
     border-right: none;
-    background: #002b5c;
+    background:rgba(0, 0, 0, 0.43);
     color: white;
     border-radius: 10px;
     padding: 16px;
     text-align: center;
     height: calc(100vh - 65px);
+
 }
 .content {
     height: calc(100vh - 98px);
@@ -19,13 +20,17 @@ mat-sidenav {
     margin: 16px;
     margin-left: 32px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    align-items: top;
     font-size: 2rem;
     color: lightgray;
 }
 mat-sidenav-container {
     height: calc(100vh - 65px);
+    background-image: url(/assets/images/hompageBannerBackground.svg);
+    background-repeat: no-repeat;
+    background-size: auto 830px;
+
 }
 
 .example-container {
@@ -35,7 +40,7 @@ mat-sidenav-container {
     left: 0;
     right: 0;
   }
-  
+
   .example-sidenav {
     display: flex;
     align-items: center;
@@ -43,14 +48,14 @@ mat-sidenav-container {
     width: 200px;
     background: rgba(255, 0, 0, 0.5);
   }
-  
+
   .example-header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
   }
-  
+
   .example-footer {
     position: fixed;
     bottom: 0;
@@ -80,4 +85,51 @@ mat-divider {
     margin-top: 16px;
     margin-bottom: 16px;
     background-color: rgba(255, 255, 255, 0.5);
+}
+
+mat-sidenav-content{
+
+  box-shadow: 0px 0px;
+}
+
+section{
+  background: rgba(0, 0, 0, 0.43);
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  justify-content: space-between;
+}
+
+.middle-section{
+  flex: 2;
+  margin: 20px 20px;
+}
+
+.right-section{
+  margin: 20px 20px;
+  flex: 1;
+  margin-left: -1px;
+}
+
+.top-middle{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.welcome{
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 50px;
+  color: white;
+}
+
+.sign-out-button{
+  width: 106px;
+  height: 35px;
+  background: #E2B2A2;
+  border-radius: 15px;
+  color: rgba(0, 0, 0, 0.43);
 }

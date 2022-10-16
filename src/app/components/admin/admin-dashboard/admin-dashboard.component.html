@@ -1,14 +1,14 @@
 <mat-sidenav-container class="example-container" >
     <mat-sidenav mode="side" opened class="mat-elevation-z8">
-        
+
         <div>
-            <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/c_GmwfHBDzk/200x200" />
+            <img class="avatar mat-elevation-z8" src="assets/images/lolly.png" />
             <h4 class="name">Lolly</h4>
             <p class="designation">Admin</p>
-            
+
         </div>
-       
-       
+
+
         <button mat-button class="menu-button">
             <span>HOME</span>
         </button>
@@ -29,24 +29,33 @@
             <span>SETTINGS</span>
         </button>
 
-       
 
-      
+
+
     </mat-sidenav>
     <mat-sidenav-content>
         <ng-content></ng-content>
-         
+
         <div class="content mat-elevation-z8">
-           
-        
+
+
         <div >
-           
-          </div>
-          <div>
-            <app-app-booking></app-app-booking>
+            <mat-card
+
+            >
+              <mat-card-header>
+                <mat-card-title>Name</mat-card-title>
+                <mat-card-subtitle>Type </mat-card-subtitle>
+              </mat-card-header>
+              <img mat-card-image [src]="" alt="A particular service" />
+              <mat-card-content>
+                <p>
+                description
+                </p>
+              </mat-card-content>
+            </mat-card>
           </div>
         </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  
-  
+
