@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+
 import { RouterModule, Router} from '@angular/router'
 
 import { AuthService } from "src/app/services/auth.service";
@@ -18,22 +19,22 @@ import 'firebase/compat/firestore';
 })
 export class AppComponent {
  // currentUser!: Observable<firebase.users | null>;
- 
+
  //user$ = this.usersService.currentUserProfile$;
 
   constructor(private usersService: UsersService, public authService: AuthService, private router: Router){
 
   }
 
-  
+
   logout() {
-    
+
     this.authService.logout();
     this.router.navigate(['']);
 
-    
-  }
-  
 
- 
+  }
+
+
+
 }
