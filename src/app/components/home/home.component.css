@@ -1,0 +1,64 @@
+.welcome-section{
+  background-image: url(/assets/images/hompageBannerBackground.svg);
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quote-section{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 52px;
+  padding-top: 35px;
+  padding-bottom: 40px;
+}
+
+.option-section{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-content: center;
+  justify-content: space-evenly;
+  padding-left: 180px;
+}
+
+.option-image{
+  height: 270px;
+  width: 200px;
+  margin-bottom: 50px;
+}
+
+.option-button{
+  height: 400px;
+  width: 250px;
+  background: #EBD3CC;
+  box-shadow: -6px 6px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  margin: 40px 0px;
+}
+
+.option{
+  font-family: 'ZCOOL XiaoWei';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+}
+
+.find-us-section{
+  background-image: url(/assets/images/find-us.svg);
+  height: 500px;
+  font-family: 'Italianno';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 120px;
+  line-height: 150px;
+  color: #F5F5F5;
+  text-align: center;
+  padding-top: 150px;
+}

@@ -1,34 +1,73 @@
-<div class="form-container mat-elevation-z5">
-    <h1>Login</h1>
-    <form [formGroup] ="loginForm" (ngSubmit)="submit()">
-        <mat-form-field>
-            <input matInput placeholder="Email Address" formControlName="email" />
-            <mat-error *ngIf="email?.errors?.['required']">
-                Email is required
-            </mat-error>
+<div class="login-section">
+  <div class="back">
+    <img class="backbutton" src="assets/images/backButton.png">
+  </div>
+  <img class="banner" src="assets/images/hompageBanner.svg">
+  <section class="form-container mat-elevation-z5">
+    <form class="login" [formGroup]="loginForm" (ngSubmit)="submit()">
+      <mat-form-field>
+        <input matInput placeholder="User ID" formControlName="email" />
+        <mat-error *ngIf="email?.errors?.['required']">
+          Email is required
+        </mat-error>
 
-            <mat-error *ngIf="email?.errors?.['email']">
-                Please enter a correct email format
-            </mat-error>
-        </mat-form-field>
-    
-        <mat-form-field>
-           
-            <input matInput placeholder="Password" formControlName="password" type="password"/>
-            <mat-error *ngIf="password?.errors?.['required']">
-                Password is required
-            </mat-error>
-        </mat-form-field>
-    
-        <button mat-raised-button color="primary" type="submit">
-            Login
-        </button>
-    
-        <span class="center margin-top">New to our platform? <a class="sign-up-Link" routerLink="/signup">Sign Up!</a></span>
-    
-        <hr/>
-        <button type="button" (click)="authService.googleSignin()">
-            Log in with Google
-          </button>
+        <mat-error *ngIf="email?.errors?.['email']">
+          Please enter a correct email format
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Password" formControlName="password" type="password" />
+        <mat-error *ngIf="password?.errors?.['required']">
+          Password is required
+        </mat-error>
+      </mat-form-field>
+
+      <button class="login-button" mat-raised-button color="primary" type="submit">
+        Login
+      </button>
+
+      <!--
+        <span class="center margin-top">New to our platform? <a class="sign-up-Link" routerLink="/signup">Sign
+          Up!</a></span>
+
+      <hr />
+      <button type="button" (click)="authService.googleSignin()">
+        Log in with Google
+      </button>
+      -->
+
     </form>
+  </section>
+
+  <div class="line-part">
+    <div class="line"></div>
+    <div class="or">OR</div>
+    <div class="line"></div>
+  </div>
+
+  <div class="other-prompt">
+    Hey you can use one these to log in.
+  </div>
+
+  <div class="other-logos">
+    <div class="google">
+      <img class="google-logo" src="assets/images/google 2.svg">
+      <p class="text">Google</p>
+    </div>
+
+    <div class="email">
+      <img class="email-logo" src="assets/images/email2.svg">
+      <p class="text">Email</p>
+    </div>
+  </div>
+
+  <div class="action">
+    <button class="skip" mat-button routerLink="login">
+      S K I P
+    </button>
+    <button class="register" mat-button routerLink="login">
+      R E G I S T E R
+    </button>
+  </div>
 </div>
