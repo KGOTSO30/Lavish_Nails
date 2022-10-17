@@ -27,6 +27,7 @@ import { BookNowComponent } from './components/book-now/book-now.component';
 import { LandingComponent } from './components/landing/landing.component';
 import { MenuComponent } from './components/menu/menu/menu.component';
 import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
+import { AdminCartsComponent } from './components/admin/admin-carts/admin-carts.component';
 
 import {
   canActivate,
@@ -47,7 +48,7 @@ const routes: Routes = [
     path: '',
 
     pathMatch: 'full',
-    component: LoginComponent
+    component: HomeComponent
 
   },
   {
@@ -126,8 +127,12 @@ const routes: Routes = [
   {
     path: 'booking-payment',
     component: AppBookingPaymentComponent
-  }
+  },
 
+  {
+    path: 'admin-carts',
+    component: AppBookingPaymentComponent
+  }
 ];
 
 @NgModule({

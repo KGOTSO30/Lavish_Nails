@@ -6,12 +6,12 @@
             <!-- searchmode -->
             <form #searchFormData="ngForm" class="example-form">
               <mat-card-actions align="start">
-              <!--   <button type="button" (click)="toggle('resMode');getDataByAppDoc();" mat-raised-button [disabled]="!searchFormData.valid"
-                    color="primary">View Appointments</button> -->
+                <button type="button" (click)="toggle('resMode');getDataByAppDoc();" mat-raised-button [disabled]="!searchFormData.valid"
+                    color="primary">View Appointments</button> 
                 <span class="med-spacer"></span>
-                <span matTooltip="Add New">
+               <!--  <span matTooltip="Add New">
                     <button type="button" mat-raised-button color="primary" (click)="toggle('addMode');">Book appointment</button>
-                </span>
+                </span> -->
                 <span class="small-spacer"></span>
                <!--  <span matTooltip="Show Recent Results">
                     <mat-icon color="primary" (click)="toggle('resMode');getDataByAppDoc();">cached</mat-icon>
@@ -88,9 +88,9 @@
         <span class="med-spacer"></span>
         <span class="med-spacer"></span>
         <span class="med-spacer"></span>
-        <span matTooltip="Add New">
+       <!--  <span matTooltip="Add New">
             <mat-icon color="primary" (click)="toggle('addMode')">add</mat-icon>
-        </span>
+        </span> -->
         <span class="small-spacer"></span>
         <span matTooltip="Search All">
             <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
@@ -168,9 +168,7 @@
                     <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
                 </span>
                 <span class="small-spacer"></span>
-                <span matTooltip="Shwo Recent Results">
-                    <mat-icon color="primary" (click)="toggle('resMode');getData();">cached</mat-icon>
-                </span>
+               
             </mat-card-actions>
             <h2>Services</h2>
             <ul class="heroes">
@@ -195,6 +193,12 @@
               <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
               <mat-datepicker #pickerfromdt></mat-datepicker>
           </mat-form-field>
+          <div class="form-group col-md-6">
+            <label class="  col-form-label text-md-right" for="aptTime">Time</label>
+    
+            <input type="time" class="form-control" name="aptTime" id="aptTime" [(ngModel)] = "myDocData.aptTime"  >
+    
+          </div>
         </div>
     </form>
   </ng-template>
