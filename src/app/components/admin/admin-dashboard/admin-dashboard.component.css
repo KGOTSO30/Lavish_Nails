@@ -3,6 +3,15 @@ mat-toolbar {
   color: white;
 }
 
+mat-divider{
+  background-color: #E2B2A2;
+}
+
+.menu-button{
+  color: #E2B2A2;
+  font-family: Inter;
+}
+
 mat-sidenav {
   margin: 16px;
   width: 200px;
@@ -137,4 +146,108 @@ section {
   background: #E2B2A2;
   border-radius: 15px;
   color: rgba(0, 0, 0, 0.43);
+}
+
+.count-section{
+  margin-top: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  height: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  background-image: url(/assets/images/time-background.svg);
+  background-color: rgba(0, 0, 0);
+  border-radius: 15px;
+}
+
+mat-calendar{
+  height: 360px;
+  width: 310px;
+  margin-top: -30px;
+  color: lightblue;
+
+}
+
+.line{
+  width: 300px;
+  height: 1px;
+  background-color: #E2B2A2;
+}
+
+.demo-inline-calendar-card{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  background: rgba(10, 10, 10, 0.7);
+}
+
+.other-stuff{
+  margin-left: 70px;
+  margin-top: 20px;
+}
+
+.circle1,
+.circle2,
+.circle3,
+.circle4{
+  background-color: #004a9f;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+}
+
+.circle1{
+  background-color: #ED96DA;
+}
+
+.circle2 {
+  background-color: #93E891;
+}
+
+.circle3 {
+  background-color: #F25757;
+}
+
+.circle4 {
+  background-color: #17A1FA;
+}
+
+.text{
+  color: #E2B2A2;
+}
+
+.description{
+  color: #E2B2A2;
+  padding: 5px 0px;
+  font-size: 20px;
+  margin-left: 30px;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.desc{
+  display: flex;
+}
+
+.number{
+  font-size: 20px;
+  color: #E4BDB0;
+}
+
+.designation,
+.name{
+  color: #E4BDB0;
+}
+
+.designation{
+  margin-top: -15px;
+  margin-bottom: 80px;
+}
+
+.right-section{
+  font-size: 20px;
+  background-color: rgba(18, 16, 15, 0.81);
+  border-radius: 15px;
+  padding: 20px 20px;
 }

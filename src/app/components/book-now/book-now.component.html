@@ -1,19 +1,38 @@
+<div class="top-part">
+  <img class="banner" src="assets/images/hompageBanner.svg">
+</div>
 
-  <!-- Begin page content -->
+<div class="book">
+  <img class="book-image" src="assets/images/book-now-image.svg">
+  <div class="description">
+    <h1 class="heading">ACRYLIC NAILS</h1>
+    <div class="text">
+      <p class="line1">Price range</p> <p class="line2">R300 - R400</p>
+    </div>
+    <div class="text">
+      <p class="line1">Nail Size Options</p> <p class="line2">S, M, L</p>
+    </div>
+    <button class="book-sess" mat-button>BOOK A SESSION</button>
+  </div>
+
+</div>
+
+
+ <!-- Begin page content -->
   <main role="main" class="flex-shrink-0">
     <div class="container">
       <h2 class="py-5"> {{ title }}!</h2>
-  
-        <app-add 
-       ></app-add> 
+
+        <app-add
+       ></app-add>
        <router-outlet
        ></router-outlet>
-     
+
     </div>
   </main>
 <div>
-    
-   
+
+
 <button mat-raised-button color="primary" [routerLink]="['/home']">
     Back home
  </button>
@@ -21,15 +40,15 @@
   </div>
 
   <!--
-    <app-pokemon 
-      ></app-pokemon> 
+    <app-pokemon
+      ></app-pokemon>
 
     <app-list
-               
-       ></app-list> 
 
-       
+       ></app-list>
+
+
       <app-detail
-               
-      ></app-detail> 
+
+      ></app-detail>
   -->

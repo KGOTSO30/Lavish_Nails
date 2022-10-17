@@ -1,0 +1,45 @@
+.top-part{
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  background-image: url(/assets/images/hompageBannerBackground.svg);
+  height: 600px;
+}
+
+.book{
+  padding-left: 50px;
+  padding-top: 50px;
+  display: flex;
+  height: 500px;
+}
+
+.heading{
+  font-size: 50px;
+  font-family: ZCOOL XiaoWei;
+  margin-bottom: 80px;;
+}
+
+.description{
+  margin-left: 200px;
+}
+
+.text{
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+}
+
+.book-sess{
+  margin-top: 100px;
+  font-family: Roboto;
+  background: rgba(0, 0, 0, 0.62);
+  color: #E2B2A2;
+  border-radius: 10px;
+}
+
+.line1,
+.line2{
+  font-size: 30px;
+  font-family: ZCOOL XiaoWei;
+}
+

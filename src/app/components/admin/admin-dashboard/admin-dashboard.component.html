@@ -38,9 +38,64 @@
           <h1 class="welcome">Welcome Lolly!</h1>
           <button class="sign-out-button" mat-button> S I G N O U T</button>
         </div>
+
+        <div class="count-section">
+          <div>
+            <h1 class="time">Today</h1>
+            <p class="number">2 clients</p>
+          </div>
+          <div>
+            <h1 class="time">This Week</h1>
+            <p class="number">11 clients</p>
+          </div>
+          <div>
+            <h1 class="time">This Month</h1>
+            <p class="number">23 clients</p>
+          </div>
+        </div>
+
+
+        <div class="calender-part">
+          <div class="calender">
+            <mat-card class="demo-inline-calendar-card">
+              <div>
+                <h2 class="text">My <br> Calender</h2>
+                <div class="line"></div>
+                <mat-calendar ></mat-calendar>
+              </div>
+              <div class="other-stuff">
+                <div class="colors">
+                  <div class="desc">
+                    <div class="circle1"></div>
+                    <p class="description">Completely Booked</p>
+                  </div>
+                  <div class="desc">
+                    <div class="circle2"></div>
+                    <p class="description">Partially Booked</p>
+                  </div>
+                  <div class="desc">
+                    <div class="circle3"></div>
+                    <p class="description">Unavailable</p>
+                  </div>
+                  <div class="desc">
+                    <div class="circle4"></div>
+                    <p class="description">Today</p>
+                  </div>
+                </div>
+
+              </div>
+            </mat-card>
+
+          </div>
+
+
+        </div>
       </div>
 
+
       <div class="right-section">
+        Recent <br> Activity
+        <mat-divider></mat-divider>
         <mat-card>
           <mat-card-header>
             <mat-card-title>Name</mat-card-title>
