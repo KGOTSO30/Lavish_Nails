@@ -95,10 +95,12 @@ const routes: Routes = [
     path: 'menu',
     component: MenuComponent,
   },
+
   {
     path: 'report-test',
     component: ReportTestComponent,
   },
+  
   {
     path: 'profile',
     component: ProfileComponent,
