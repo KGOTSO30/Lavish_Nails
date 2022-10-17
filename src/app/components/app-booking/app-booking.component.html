@@ -110,7 +110,7 @@
             </ng-container>
             <ng-container matColumnDef="Appointment Date">
                     <mat-header-cell *matHeaderCellDef mat-sort-header>Appointment Date</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.AppointmentDate }} </mat-cell>
+                    <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString('yyyy-MM-dd') }} </mat-cell>
                 </ng-container>
             <ng-container matColumnDef="name">
                 <mat-header-cell *matHeaderCellDef mat-sort-header>Service Name</mat-header-cell>

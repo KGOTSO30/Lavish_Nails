@@ -23,7 +23,7 @@ import {
 import { CollectionViewer, DataSource } from '@angular/cdk/collections';
 
 export interface ClientItem extends Client {
-  firstName?: string;
+  DisplayName?: string;
   lastName?: string;
   email?: string;
   phoneNumber?: string;
