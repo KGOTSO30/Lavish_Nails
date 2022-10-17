@@ -9,17 +9,18 @@
     <button class="nav-item" mat-button routerLink="home">
       HOME
     </button>
-    <button class="nav-item" mat-button routerLink="login">
+    <button class="nav-item" mat-button routerLink="login
+    ">
       NAIL CATEGORY
     </button>
-    <button class="nav-item" mat-button routerLink="login">
+    <button class="nav-item" mat-button routerLink="signup">
       CONTACT US
     </button>
   </div>
 
   <ng-container *ngIf="authService.user$ | async as user; else loginButton">
     <div>
-      
+
 
       <button mat-button [matMenuTriggerFor]="userMenu">
         <mat-icon>account_circle</mat-icon>
