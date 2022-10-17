@@ -69,7 +69,7 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    //...canActivate(redirectUnauthorizedToLogin),
+    ...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: 'add-appointment',
@@ -131,7 +131,7 @@ const routes: Routes = [
 
   {
     path: 'admin-carts',
-    component: AppBookingPaymentComponent
+    component: AdminCartsComponent
   }
 ];
 
