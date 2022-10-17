@@ -49,12 +49,9 @@ export class LoginComponent implements OnInit {
     }
     const { email, password } = this.loginForm.value;
     this.authService.login( email!, password!)
+ 
 
    
-      if (true) {
-        this.router.navigate(['/home']);
-      }
-    
 
 }
 

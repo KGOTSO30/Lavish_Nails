@@ -6,7 +6,7 @@
         <mat-icon>menu</mat-icon>
       </button>
     </div>
-    <button class="nav-item" mat-button routerLink="login">
+    <button class="nav-item" mat-button routerLink="home">
       HOME
     </button>
     <button class="nav-item" mat-button routerLink="login">
@@ -19,15 +19,7 @@
 
   <ng-container *ngIf="authService.user$ | async as user; else loginButton">
     <div>
-      <button class="nav-item" mat-button routerLink="login">
-        HOME
-      </button>
-      <button class="nav-item" mat-button routerLink="login">
-        NAIL CATEGORY
-      </button>
-      <button class="nav-item" mat-button routerLink="login">
-        CONTACT US
-      </button>
+      
 
       <button mat-button [matMenuTriggerFor]="userMenu">
         <mat-icon>account_circle</mat-icon>
@@ -46,7 +38,7 @@
       <button class="login-button" mat-button routerLink="login">
         LOG IN
       </button>
-      <button class="book-button" mat-button routerLink="login">
+      <button class="book-button" mat-button routerLink="home">
         BOOK SESSION
       </button>
     </div>
@@ -75,16 +67,7 @@
 
 </mat-menu>
 
-<!--footer-->
-<div class="footer">
-  <div class="prompt">
-    Do you have a question?
-    <button class="prompt-button" mat-button routerLink="login">
-      Contact Us
-    </button>
-  </div>
 
-</div>
 
 <!--
 
