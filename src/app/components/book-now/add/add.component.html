@@ -3,18 +3,18 @@
     <div class="apt-addheading card-header bg-primary text-white" >
      Confirm date and time
     </div><!-- card-header -->
-  
+
     <div class="card-body">
-  
+
       <form id="aptForm" novalidate
       (ngSubmit)="addAppointment(aptForm.value)"
       #aptForm="ngForm"
       >
-    
-      
-  
-  
-        
+
+
+
+
+
         <div class="form-row">
         <div class="form-group col-md-6">
           <label class=" col-form-label text-md-right" for="aptDate">Date</label>
@@ -24,26 +24,26 @@
               <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"> </button>
             </div>
           </div><!-- col-md-4 -->
-  
+
         </div>
           <div class="form-group col-md-6">
           <label class="  col-form-label text-md-right" for="aptTime">Time</label>
-  
+
           <input type="time" class="form-control" name="aptTime" id="aptTime" ngModel>
-  
+
         </div><!-- form-group -->
         </div>
-  
-      
-  
-  
-  
+
+
+
+
+
         <div class="form-group form-row mb-0">
           <div class="offset-md-2 col-md-10">
             <button type="submit" class="btn btn-primary d-block ml-auto"> Confirm Booking</button>
           </div><!-- col-md-offset-2 -->
         </div><!-- form-group -->
-  
+
       </form>
     </div><!-- card-body -->
   </div><!-- card-primary -->
@@ -54,9 +54,9 @@
   <div class="form-row">
         <div class="form-group col-md-12 ">
           <label class=" col-form-label text-md-right" for="clientName">Name</label>
-  
+
             <input type="text" class="form-control" name="clientName" id="clientName" placeholder="Name" ngModel>
-  
+
         </div>
       </div>
 
@@ -65,21 +65,21 @@
           <div class=" ">
             <textarea class="form-control" rows="4" cols="50"
                       name="aptNotes" id="aptNotes" placeholder="Appointment Notes" ngModel> </textarea>
-          </div> col-md-10 
-        </div> form-group 
+          </div> col-md-10
+        </div> form-group
 
 
           <div class="form-row">
         <div class="form-group col-md-12 ">
           <label class=" col-form-label text-md-right" for="clientName">Name</label>
-  
+
             <input type="text" class="form-control" name="clientName" id="clientName" placeholder="Name" ngModel>
-  
+
         </div>
       </div>
   -->
 
-  
+
       <!-- form-group
         <div class="form-group   ">
           <label class="  col-form-label text-md-right"
@@ -89,12 +89,12 @@
                   <option value="Rubberbase">Rubberbase</option>
                   <option value="Polygel">Polygel</option>
                 </select>
-        
+
         </div>
-      
+
         <div class="form-row">
         <div class="form-group  col-md-6  ">
-  
+
           <label class=" col-form-label text-md-right"
                  for="serviceName">Service Name</label>
                  <select name="serviceName"  class="form-control" id="serviceName" ngModel>
@@ -103,11 +103,11 @@
                   <option value="Ombre/French">Ombre/French</option>
                   <option value="FullSet">FullSet</option>
                   <option value="FullSet Ombre/French">FullSet Ombre/French</option>
-                  
+
                 </select>
-  
+
         </div>
-  
+
           <div class="form-group  col-md-6 ">
           <label class="  col-form-label text-md-right" for="size">Nail Size</label>
           <select name="size"  class="form-control" id="size" ngModel>
@@ -117,5 +117,5 @@
           </select>
         </div>
       </div>
-      
+
       -->

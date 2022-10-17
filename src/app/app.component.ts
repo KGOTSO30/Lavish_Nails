@@ -17,23 +17,26 @@ import 'firebase/compat/firestore';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
  // currentUser!: Observable<firebase.users | null>;
- 
+
  //user$ = this.usersService.currentUserProfile$;
 
   constructor(private usersService: UsersService, public authService: AuthService, private router: Router){
 
   }
 
-  
+
   logout() {
-    
+
     this.authService.logout();
     this.router.navigate(['']);
 
-    
-  }
-  
 
- 
+  }
+
+
+
 }
