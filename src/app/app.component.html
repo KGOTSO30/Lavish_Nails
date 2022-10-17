@@ -1,49 +1,58 @@
+
 <mat-toolbar>
-    
-    Lavished Nails
+  <div class="nav-items">
+    <div>
+      <button mat-icon-button>
+        <mat-icon>menu</mat-icon>
+      </button>
+    </div>
+    <button class="nav-item" mat-button routerLink="login">
+      HOME
+    </button>
+    <button class="nav-item" mat-button routerLink="login">
+      NAIL CATEGORY
+    </button>
+    <button class="nav-item" mat-button routerLink="login">
+      CONTACT US
+    </button>
+  </div>
 
-    <ng-container *ngIf="authService.user$ | async as user; else loginButton">
-        <div>
-            <button mat-button routerLink="login">
-                NAIL CATEGORY
-             </button> 
-             <button mat-button routerLink="login">
-               CONTACT US
-             </button> 
+  <ng-container *ngIf="authService.user$ | async as user; else loginButton">
+    <div>
+      <button class="nav-item" mat-button routerLink="login">
+        HOME
+      </button>
+      <button class="nav-item" mat-button routerLink="login">
+        NAIL CATEGORY
+      </button>
+      <button class="nav-item" mat-button routerLink="login">
+        CONTACT US
+      </button>
 
-             <button mat-button [matMenuTriggerFor]="userMenu">
-                <mat-icon>account_circle</mat-icon>
-               {{user.displayName}}
-                <mat-icon>expand_more</mat-icon>
-            </button>
-        </div>
-       
-      
+      <button mat-button [matMenuTriggerFor]="userMenu">
+        <mat-icon>account_circle</mat-icon>
+        {{user.displayName}}
+        <mat-icon>expand_more</mat-icon>
+      </button>
+    </div>
 
-    </ng-container>
 
-    <ng-template #loginButton>
-            <div>
-                <button mat-button routerLink="login">
-                    NAIL CATEGORY
-                 </button> 
-                 <button mat-button routerLink="login">
-                   CONTACT US
-                 </button> 
-    
-              
-                <button mat-button routerLink="login">
-                    <mat-icon>login</mat-icon>
-                   LOGIN
-                </button> 
-                
-            </div>
-    </ng-template>
 
-   
+  </ng-container>
+
+  <ng-template #loginButton>
+    <div class="nav-buttons
+              ">
+      <button class="login-button" mat-button routerLink="login">
+        LOG IN
+      </button>
+      <button class="book-button" mat-button routerLink="login">
+        BOOK SESSION
+      </button>
+    </div>
+  </ng-template>
+
 </mat-toolbar>
-
-
 
 
 
@@ -59,12 +68,25 @@
     <button mat-button  [routerLink]="['/profile']">
         Profile
      </button>
-    
-  
+
+
      <button mat-menu-item (click)="logout()">Logout</button>
-     
+
 
 </mat-menu>
+
+<!--footer-->
+<div class="footer">
+  <div class="prompt">
+    Do you have a question?
+    <button class="prompt-button" mat-button routerLink="login">
+      Contact Us
+    </button>
+  </div>
+
+</div>
+
+<!--
 
 <!--
       <button mat-menu-item (click)="Book()">Bookings</button>
