@@ -5,10 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
 import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
 
-import {
-  HighchartsChartModule
-} from "highcharts-angular";
-
+import { HighchartsChartModule } from 'highcharts-angular';
 
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
@@ -42,14 +39,12 @@ import { AuthGuardAdminService } from './services/auth-guard-admin.service';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
 
-
 const routes: Routes = [
   {
     path: '',
 
     pathMatch: 'full',
-    component: HomeComponent
-
+    component: HomeComponent,
   },
   {
     path: 'landing',
@@ -69,13 +64,12 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    ...canActivate(redirectUnauthorizedToLogin),
+    //...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: 'add-appointment',
     component: AddAppointmentComponent,
-   // ...canActivate(redirectUnauthorizedToLogin),
-
+    // ...canActivate(redirectUnauthorizedToLogin),
   },
   {
     path: 'book-now',
@@ -100,13 +94,18 @@ const routes: Routes = [
     path: 'report-test',
     component: ReportTestComponent,
   },
-  
+
   {
     path: 'profile',
     component: ProfileComponent,
   },
-  { path: 'pokemon', loadChildren: () => import('./core/features/pokemon/pokemon.module').then(m => m.PokemonModule) },
-
+  {
+    path: 'pokemon',
+    loadChildren: () =>
+      import('./core/features/pokemon/pokemon.module').then(
+        (m) => m.PokemonModule
+      ),
+  },
 
   {
     path: 'sales',
@@ -124,26 +123,22 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminTabComponent,
-    canActivate: [AuthGuardAdminService]
+    canActivate: [AuthGuardAdminService],
   },
   {
     path: 'booking-payment',
-    component: AppBookingPaymentComponent
+    component: AppBookingPaymentComponent,
   },
 
   {
     path: 'admin-carts',
-    component: AdminCartsComponent
-  }
+    component: AdminCartsComponent,
+  },
 ];
 
 @NgModule({
-  declarations:[],
-  imports: [
-    CommonModule,
-
-    RouterModule.forRoot(routes)
-  ],
-  exports: [RouterModule]
+  declarations: [],
+  imports: [CommonModule, RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
