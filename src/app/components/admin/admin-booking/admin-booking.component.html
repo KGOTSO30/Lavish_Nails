@@ -6,18 +6,18 @@
             <!-- searchmode -->
             <form #searchFormData="ngForm" class="example-form">
               <mat-card-actions align="start">
-                 <button type="button" (click)="toggle('resMode');getDataByAppDoc();" mat-raised-button [disabled]="!searchFormData.valid"
-                    color="primary">View Appointments</button> 
+               <button type="button" (click)="toggle('resMode');getDataByAppDoc();" mat-raised-button [disabled]="!searchFormData.valid"
+                    color="primary">View Appointments</button>
                 <span class="med-spacer"></span>
-              <!--   <span matTooltip="Add New">
+<!--                 <span matTooltip="Add New">
                     <button type="button" mat-raised-button color="primary" (click)="toggle('addMode');">Book appointment</button>
                 </span> -->
                 <span class="small-spacer"></span>
-               <!--  <span matTooltip="Show Recent Results">
+                 <span matTooltip="Show Recent Results">
                     <mat-icon color="primary" (click)="toggle('resMode');getDataByAppDoc();">cached</mat-icon>
                 </span> -->
             </mat-card-actions>
-               
+
             </form>
         </div>
     </mat-card-content>
@@ -26,16 +26,16 @@
   <ng-template #showAddMode>
     <form #addDataForm="ngForm" (ngSubmit)="setAppData(addDataForm.value);" novalidate>
         <mat-error *ngIf="savedChanges">
-            
+
             Data is saved, proceed below.
             <label class="small-spacer"></label>
-           
+
         </mat-error>
         <div *ngIf="!savedChanges">
-         
+
             <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
-           
-           
+
+
       <h2>Services</h2>
       <ul class="heroes">
         <li *ngFor="let hero of heroes">
@@ -45,9 +45,9 @@
           </button>
         </li>
       </ul>
-      
+
       <div *ngIf="selectedHero">
-       
+
         <div>
           <label for="hero-name">Service Chosen :  </label>
           <input id="hero-name" [(ngModel)]="selectedHero.name" name ="hero-name" placeholder="name">
@@ -61,16 +61,16 @@
 
           <div class="form-group col-md-6">
             <label class="  col-form-label text-md-right" for="aptTime">Time</label>
-    
+
             <input type="time" class="form-control" name="aptTime" id="aptTime" ngModel>
-    
+
           </div>
           <mat-card-actions align="start">
             <button type="submit" mat-raised-button [disabled]="!addDataForm.valid" color="primary">Book</button>
-           
+
             <span class="med-spacer"></span>
             <span matTooltip="Search">
-               
+
             </span>
             <span class="small-spacer"></span>
           <!--   <span matTooltip="Show Recent Results">
@@ -78,10 +78,10 @@
             </span> -->
         </mat-card-actions>
         </div>
-      
+
     </form>
   </ng-template>
-  
+
   <!-- Results mode -->
   <ng-template #showResMode>
     <mat-card-actions align="start">
@@ -96,8 +96,8 @@
             <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
         </span>
     </mat-card-actions>
-   
-   
+
+
     <div class="example-header">
       <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" placeholder="Search Recent Results">
@@ -124,31 +124,31 @@
                 <ng-container matColumnDef="_id">
                   <mat-header-cell *matHeaderCellDef> action </mat-header-cell>
                   <mat-cell *matCellDef="let row">
-                     
+
                        <span matTooltip="Edit">
                           <button mat-icon-button (click)="getAppDoc(row._id)">
                               <mat-icon color="primary">edit</mat-icon>
                           </button>
                       </span>
-                     <!--  <span matTooltip="Delete">
+                      <span matTooltip="Delete">
                           <button mat-icon-button (click)="deleteAppDoc(row._id)">
                               <mat-icon color="primary">delete</mat-icon>
                           </button>
-                      </span> -->
-  
-                        
-                     
+                      </span>
+
+
+
                   </mat-cell>
               </ng-container>
-             
-  
+
+
             <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
             <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
         <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
     </div>
   </ng-template>
-  
+
   <!-- edit mode -->
   <ng-template #showEditMode>
     <form #editDataForm="ngForm" (ngSubmit)="updateAppData(editDataForm.value);" novalidate>
@@ -159,7 +159,7 @@
             <mat-icon (click)="this.editDataForm.reset();savedChanges=false;toggle('searchMode');">clear</mat-icon>
         </mat-error>
         <div *ngIf="!savedChanges">
-          
+
             <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
             <mat-card-actions align="start">
                 <button type="submit" mat-raised-button [disabled]="!this.editDataForm.valid || this.editDataForm.pristine" color="primary">Update</button>
@@ -168,7 +168,7 @@
                     <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
                 </span>
                 <span class="small-spacer"></span>
-              
+
             </mat-card-actions>
             <h2>Services</h2>
             <ul class="heroes">
@@ -179,12 +179,12 @@
                 </button>
               </li>
             </ul>
-            
+
             <div *ngIf="selectedHero">
-              <h2>{{selectedHero.name | uppercase}} Details</h2>
+              <!--<h2>{{selectedHero.name | uppercase}} Details</h2>
               <div>id: {{selectedHero.id}}</div>
               <div>
-                <label for="hero-name">Hero name: </label>
+                <label for="hero-name">Hero name: </label>-->
                 <input id="hero-name" [(ngModel)]="myDocData.name" placeholder="name">
               </div>
             </div>
@@ -193,15 +193,14 @@
               <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
               <mat-datepicker #pickerfromdt></mat-datepicker>
           </mat-form-field>
-        </div>
+        
     </form>
   </ng-template>
-  
-  
-  
-  
-  
-  
-  
-  
-  
+
+
+
+
+
+
+
+

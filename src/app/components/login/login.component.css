@@ -107,3 +107,9 @@ section {
   margin-left: -1100px;
   margin-top: 40px;
 }
+
+.button{
+  border: none;
+  background: none;
+  padding: 0px;
+}
