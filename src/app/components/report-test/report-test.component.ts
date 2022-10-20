@@ -43,7 +43,9 @@ export class ReportTestComponent implements OnInit {
     'Name',
     'Surname',
     'Email',
-    'PhoneNumber'
+    'PhoneNumber',
+    'Elapsed',
+    'RecallStatus'
     ]
 
    private customerCollection!: AngularFirestoreCollection<ClientItem>;

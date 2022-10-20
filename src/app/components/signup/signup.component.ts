@@ -100,6 +100,8 @@ export class SignupComponent implements OnInit {
   
     if (!this.signUpForm.valid ) {return;}
 
+
+   
      this.authService
     .signUp( email!, password!)
     .pipe(

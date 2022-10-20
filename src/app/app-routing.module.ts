@@ -122,7 +122,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminTabComponent,
-    canActivate: [AuthGuardAdminService]
+   // canActivate: [AuthGuardAdminService]
   },
   {
     path: 'booking-payment',
@@ -131,7 +131,7 @@ const routes: Routes = [
 
   {
     path: 'admin-carts',
-    component: AppBookingPaymentComponent
+    component: AdminCartsComponent
   }
 ];
 

@@ -6,3 +6,14 @@
 table {
     width: 100%;
   }
+
+   td.green {
+    background-color: green; /*the default color is blue for the cells */
+}
+ 
+td.amber {
+    background-color: orange; /*the default color is blue for the cells */
+}
+td.red {
+    background-color: red; /* more specific style to override color to red */
+}
