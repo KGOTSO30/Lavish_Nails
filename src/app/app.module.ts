@@ -65,6 +65,8 @@ import {
 import { AddComponent } from './components/book-now/add/add.component';
 import { ListComponent } from './components/book-now/list/list.component';
 
+import { GooglePayButtonModule } from '@google-pay/button-angular';
+
 //import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SalesComponent } from './components/sales/sales.component';
@@ -153,6 +155,7 @@ import { AppBookingPaymentComponent } from './components/app-booking-payment/app
     MatSidenavModule,
     MatDividerModule,
     MatPaginatorModule,
+    GooglePayButtonModule,
    /*  NgxMatNativeDateModule,
     NgxMatDatetimePickerModule,
 

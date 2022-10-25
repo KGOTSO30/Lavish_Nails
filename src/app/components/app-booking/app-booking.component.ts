@@ -7,8 +7,8 @@ import {CrudService} from 'src/app/shared/crud.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Hero } from '../menu/hero';
-import { HEROES } from '../menu/models';
+import { Hero,Nail } from '../menu/hero';
+import { HEROES,PolyGel, Rubberbase } from '../menu/models';
 //import { DatePipe } from '@angular/common';
 
 
@@ -37,6 +37,10 @@ myInvalid = [{
   start: '2022-10-14T19:00',
   end: '2022-10-14T20:00'
 }];
+
+
+polygel = PolyGel;
+rubberbase = Rubberbase;
 
 
 heroes = HEROES;

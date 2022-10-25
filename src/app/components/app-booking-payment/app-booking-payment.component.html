@@ -1,41 +1,62 @@
 
     <div>
       <app-app-booking></app-app-booking>
+
+      <google-pay-button
+       environment="TEST"
+       buttonSizeMode="fill"
+       [paymentRequest]= "paymentRequest"
+       (loadpaymentdata) = "onLoadPaymentData($event)" ></google-pay-button>
    </div>
-   <div>
-  
-  
-   </div>
+ 
+ <!-- 
+   <div class="container">
+    <h2 class="mt-5 mb-4">Angular Stripe Checkout Example</h2>
+    <div class="col-md-5 mb-2">
+      <button (click)="makePayment(15)" class="btn btn-danger btn-block">Pay $15</button>
+    </div>
    
- 
- <!-- Include the Yoco SDK in your web page -->
- <script src="https://js.yoco.com/sdk/v1/yoco-sdk-web.js"></script>
-  
- <!-- Create a pay button that will open the popup-->
- <button id="checkout-button">Pay</button>
- 
- <script>
-   var yoco = new window.YocoSDK({
-     publicKey: 'pk_test_fe6ca02cAl0e837f82f4',
-   });
-   var checkoutButton = document.querySelector('#checkout-button');
-   checkoutButton.addEventListener('click', function () {
-     yoco.showPopup({
-       amountInCents: 2799,
-       currency: 'ZAR',
-       name: 'Your Store or Product',
-       description: 'Awesome description',
-       callback: function (result) {
-         // This function returns a token that your server can use to capture a payment
-         if (result.error) {
-           const errorMessage = result.error.message;
-           alert("error occured: " + errorMessage);
-         } else {
-           alert("card successfully tokenised: " + result.id);
-         }
-         // In a real integration - you would now pass this chargeToken back to your
-         // server along with the order/basket that the customer has purchased.
-       }
-     })
-   });
- </script>
+  </div> -->
+
+  <h2>Services</h2>
+  <ul class="heroes">
+    <li *ngFor="let poly of polygel">
+      <button [class.selected]="poly === selectedPolygel" type="button" (click)="onSelectP(poly)">
+        <span class="badge">{{poly.time}}</span>
+        <span class="name">{{poly.name}}</span>
+        <span class="name">{{poly.price}}</span>
+      </button>
+    </li>
+  </ul>
+
+  <div *ngIf="selectedPolygel">
+
+    <div>
+      <label for="hero-name">Service Chosen :  </label>
+      <input id="hero-name" [(ngModel)]="selectedPolygel.name" name ="hero-name" placeholder="name">
+    </div>
+  </div>
+        <mat-form-field class="example-form">
+          <input matInput [matDatepicker]="pickerfromdt" placeholder="Appointment Date" id="fromdt" name="AppointmentDate" #fromdt="ngModel" [ngModel]="currentDate" required>
+          <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
+          <mat-datepicker #pickerfromdt></mat-datepicker>
+      </mat-form-field>
+
+      <div class="form-group col-md-6">
+        <label class="  col-form-label text-md-right" for="aptTime">Time</label>
+
+        <input type="time" class="form-control" name="aptTime" id="aptTime" ngModel>
+
+      </div>
+      <mat-card-actions align="start">
+        <button type="submit" mat-raised-button  color="primary">Book</button>
+
+        <span class="med-spacer"></span>
+        <span matTooltip="Search">
+
+        </span>
+        <span class="small-spacer"></span>
+      <!--   <span matTooltip="Show Recent Results">
+          <mat-icon color="primary" (click)="getData();">cached</mat-icon>
+        </span> -->
+    </mat-card-actions>

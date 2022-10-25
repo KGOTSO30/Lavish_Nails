@@ -74,6 +74,20 @@ export class AuthService {
 
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+
+ // Send email verification when new user sign up
+ SendVerificationMail() {
+  return this.afAuth.currentUser
+    .then((cred: any) => {
+      
+      return cred.sendEmailVerification();
+    })
+    .then(() => {
+      this.router.navigate(['verify-email-address']);
+    });
+}
+
+
 signUp(email: string, password: string): Observable<UserCredential> {
   this.router.navigate(['login']);
   return from(createUserWithEmailAndPassword(this.auth, email, password));
