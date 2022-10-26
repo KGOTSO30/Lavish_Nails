@@ -3,14 +3,13 @@
   <section class="form-container mat-elevation-z5">
     <h1>Set Up Your Lavish Account!</h1>
     <form [formGroup]="signUpForm" (ngSubmit)="submit()">
+
       <mat-form-field>
         <input matInput placeholder="First Name" formControlName="displayName" />
         <mat-error *ngIf="displayName?.errors?.['required']">
           First Name is required
         </mat-error>
       </mat-form-field>
-
-
 
       <mat-form-field>
         <input matInput placeholder="Last Name" formControlName="lastName" />
@@ -24,9 +23,15 @@
         <mat-error *ngIf="email?.errors?.['required']">
           Email is required
         </mat-error>
-
         <mat-error *ngIf="email?.errors?.['email']">
           Please enter a correct email format
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Phone Number" formControlName="phoneNumber" type="tel"/>
+        <mat-error *ngIf="phoneNumber?.errors?.['required']">
+          Phone Number is required
         </mat-error>
       </mat-form-field>
 
