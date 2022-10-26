@@ -98,7 +98,8 @@ export class SignupComponent implements OnInit {
   submit(){
     const {displayName, lastName, email, password, phoneNumber, /* completedAppointments, totalSpend */} = this.signUpForm.value;
   
-   // if (!this.signUpForm.valid ) {return;}
+   if (!this.signUpForm.valid ) {return;}
+
 
 
    
