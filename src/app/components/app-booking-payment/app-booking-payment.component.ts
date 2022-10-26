@@ -56,8 +56,8 @@ constructor() {}
         totalPriceStatus: 'ESTIMATED',
         totalPriceLabel: 'Total',
         totalPrice: '260.00',// this.selectedPolygel?.price.toFixed(2), //this.item.price.toFixed(2)
-        currencyCode: 'USD',
-        countryCode:'US'
+        currencyCode: 'ZAR',
+        countryCode:'ZA'
       }
     }
   }

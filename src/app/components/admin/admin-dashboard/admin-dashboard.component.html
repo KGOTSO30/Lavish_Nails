@@ -17,7 +17,7 @@
       <span>REPORTS</span>
     </button>
     <mat-divider></mat-divider>
-    <button mat-button class="menu-button">
+    <button mat-button class="menu-button" [routerLink]="['/admin-users']">
       <span>CLIENTS</span>
     </button>
     <mat-divider></mat-divider>
@@ -98,13 +98,13 @@
         <mat-divider></mat-divider>
         <mat-card>
           <mat-card-header>
-            <mat-card-title>Name</mat-card-title>
-            <mat-card-subtitle>Type </mat-card-subtitle>
+            <mat-card-title>Client Name</mat-card-title>
+           
           </mat-card-header>
-          <img mat-card-image [src]="" alt="A particular service" />
+        
           <mat-card-content>
             <p>
-              description
+              Appointment Date
             </p>
           </mat-card-content>
         </mat-card>

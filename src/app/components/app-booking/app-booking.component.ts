@@ -72,6 +72,10 @@ selectedHero?: Hero;
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
   displayedColumns = ['category', 'Appointment Date', 'name', 'price', '_id'];
   
+
+  public min: Date = new Date(2000, 2, 10, 2, 30);
+  public max: Date = new Date(2002, 2, 10, 22, 15);
+  public value: Date = new Date(2000, 2, 10, 10, 0);
   
 
   constructor(private appointmentService: CrudService,

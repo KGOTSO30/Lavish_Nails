@@ -25,6 +25,7 @@ import { LandingComponent } from './components/landing/landing.component';
 import { MenuComponent } from './components/menu/menu/menu.component';
 import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
 import { AdminCartsComponent } from './components/admin/admin-carts/admin-carts.component';
+import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 
 import {
   canActivate,
@@ -133,7 +134,13 @@ const routes: Routes = [
   {
     path: 'admin-carts',
     component: AdminCartsComponent
+  },
+
+  {
+    path: 'admin-users',
+    component:  AdminUsersComponent
   }
+ 
 ];
 
 @NgModule({
