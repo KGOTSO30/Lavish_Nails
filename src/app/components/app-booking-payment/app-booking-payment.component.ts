@@ -10,7 +10,65 @@ import { HEROES,PolyGel, Rubberbase } from '../menu/models';
 })
 export class AppBookingPaymentComponent implements OnInit {
 
-polygel = PolyGel;
+
+
+
+constructor() {}
+  ngOnInit() {
+    this.invokeStripe();
+
+   
+  }
+
+
+
+
+
+
+  paymentHandler: any = null;
+  
+  makePayment(amount: any) {
+    const paymentHandler = (<any>window).StripeCheckout.configure({
+      key: 'pk_test_51LvVKoBFn7mfkH25MPo8yiqOUcx1wSKIx15Xb16TkqDRmaMzoeBBRCUSPa1qjF0mzySFl6sdznRWBh52TQIBaLp800WTJBrdV8',
+      locale: 'auto',
+      token: function (stripeToken: any) {
+        console.log(stripeToken);
+        alert('Stripe token generated!---Maybe you might wanna say Payment Successful---Again why devs need designers');
+      },
+    });
+    paymentHandler.open({
+      name: 'Lavished',
+      description: ' why devs need designers',
+      amount: amount * 100,
+      email: "kgotsozyn@gmail.com"
+    });
+  }
+  invokeStripe() {
+    if (!window.document.getElementById('stripe-script')) {
+      const script = window.document.createElement('script');
+      script.id = 'stripe-script';
+      script.type = 'text/javascript';
+      script.src = 'https://checkout.stripe.com/checkout.js';
+      script.onload = () => {
+        this.paymentHandler = (<any>window).StripeCheckout.configure({
+          key: 'pk_test_51LvVKoBFn7mfkH25MPo8yiqOUcx1wSKIx15Xb16TkqDRmaMzoeBBRCUSPa1qjF0mzySFl6sdznRWBh52TQIBaLp800WTJBrdV8',
+          locale: 'auto',
+          token: function (stripeToken: any) {
+            console.log(stripeToken);
+            alert('Payment has been successfull!');
+          },
+        });
+      };
+      window.document.body.appendChild(script);
+    }
+  }
+
+
+  
+
+
+
+  /* polygel = PolyGel;
 rubberbase = Rubberbase;
 
 
@@ -21,14 +79,26 @@ selectedRubberbase!: Nail;
 currentDate: any;
 
 
-paymentRequest!: google.payments.api.PaymentDataRequest;
+paymentRequest!: google.payments.api.PaymentDataRequest; */
+
+  /*
+ onSelectP(polygel: Nail): void {
+    this.selectedPolygel = polygel;
+  }
+  onSelectR(rubberbase: Nail): void {
+    this.selectedRubberbase = rubberbase;
+  }
 
 
-constructor() {}
-  ngOnInit() {
-    //this.invokeStripe();
 
-    this.paymentRequest = {
+
+  onLoadPaymentData(e : Event) {
+   const event = e as CustomEvent<google.payments.api.PaymentData>;
+    console.log("load payment data", event.detail);
+  }
+
+
+   this.paymentRequest = {
       apiVersion: 2,
       apiVersionMinor: 0,
       allowedPaymentMethods: [
@@ -60,24 +130,8 @@ constructor() {}
         countryCode:'ZA'
       }
     }
-  }
-
-
- onSelectP(polygel: Nail): void {
-    this.selectedPolygel = polygel;
-  }
-  onSelectR(rubberbase: Nail): void {
-    this.selectedRubberbase = rubberbase;
-  }
-
-
-
-
-  onLoadPaymentData(e : Event) {
-   const event = e as CustomEvent<google.payments.api.PaymentData>;
-    console.log("load payment data", event.detail);
-  }
  
+*/
 
 
 
@@ -96,44 +150,4 @@ constructor() {}
 
 
 
-
-
-
- /*  paymentHandler: any = null;
-  
-  makePayment(amount: any) {
-    const paymentHandler = (<any>window).StripeCheckout.configure({
-      key: 'pk_test_51LvVKoBFn7mfkH25MPo8yiqOUcx1wSKIx15Xb16TkqDRmaMzoeBBRCUSPa1qjF0mzySFl6sdznRWBh52TQIBaLp800WTJBrdV8',
-      locale: 'auto',
-      token: function (stripeToken: any) {
-        console.log(stripeToken);
-        alert('Stripe token generated!');
-      },
-    });
-    paymentHandler.open({
-      name: 'Lavished',
-      description: '3 widgets',
-      amount: amount * 100,
-    });
-  }
-  invokeStripe() {
-    if (!window.document.getElementById('stripe-script')) {
-      const script = window.document.createElement('script');
-      script.id = 'stripe-script';
-      script.type = 'text/javascript';
-      script.src = 'https://checkout.stripe.com/checkout.js';
-      script.onload = () => {
-        this.paymentHandler = (<any>window).StripeCheckout.configure({
-          key: 'pk_test_51LvVKoBFn7mfkH25MPo8yiqOUcx1wSKIx15Xb16TkqDRmaMzoeBBRCUSPa1qjF0mzySFl6sdznRWBh52TQIBaLp800WTJBrdV8',
-          locale: 'auto',
-          token: function (stripeToken: any) {
-            console.log(stripeToken);
-            alert('Payment has been successfull!');
-          },
-        });
-      };
-      window.document.body.appendChild(script);
-    }
-  }
- */
 }

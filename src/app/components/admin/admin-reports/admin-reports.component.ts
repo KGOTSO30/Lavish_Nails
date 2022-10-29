@@ -25,10 +25,10 @@ export class AdminReportsComponent implements OnInit {
 
     var data = google.visualization.arrayToDataTable([
       ['Element', 'Total Sales ', { role: 'style' }],
-      ['Rubberbase', 1500.00, 'blue'],            // RGB value
+      ['Rubberbase', 1500.00, '#D1B9AA'],            // RGB value
       ['Acrylic', 1200.00, 'blue'],            // English color name
       ['Polygel', 900.00, 'blue'],
-      ['Nail Art', 70, 'red'],            // English color name
+      ['Nail Art', 70, 'nude'],            // English color name
       ['Extras', 0.00, 'red'],
 
     ['Gel pedi', 20.00, 'color: red' ], // CSS-style declaration
