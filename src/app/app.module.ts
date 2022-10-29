@@ -89,6 +89,7 @@ import { AdminUsersComponent } from './components/admin/admin-users/admin-users.
 import { AdminReportsComponent } from './components/admin/admin-reports/admin-reports.component';
 import { AppBookingComponent } from './components/app-booking/app-booking.component';
 import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 @NgModule({
   declarations: [
@@ -129,6 +130,7 @@ import { AppBookingPaymentComponent } from './components/app-booking-payment/app
     AdminReportsComponent,
     AppBookingComponent,
     AppBookingPaymentComponent,
+    VerifyEmailComponent,
   ],
   imports: [
     BrowserModule,

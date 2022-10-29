@@ -26,6 +26,7 @@ import { MenuComponent } from './components/menu/menu/menu.component';
 import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
 import { AdminCartsComponent } from './components/admin/admin-carts/admin-carts.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
+import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 
 import {
   canActivate,
@@ -139,7 +140,8 @@ const routes: Routes = [
   {
     path: 'admin-users',
     component:  AdminUsersComponent
-  }
+  },
+  { path: 'verify-email-address', component: VerifyEmailComponent },
  
 ];
 

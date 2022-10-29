@@ -20,6 +20,7 @@ import {
   updateProfile,
   UserInfo,
   UserCredential,} from '@angular/fire/auth';
+import { emailVerified } from '@angular/fire/auth-guard';
 @Injectable({
   providedIn: 'root',
 })
@@ -87,10 +88,26 @@ export class AuthService {
     });
 }
 
+// Sign up with email/password
+/* signUp(email: string, password: string){
+  return this.afAuth
+    .createUserWithEmailAndPassword(email, password)
+    .then((result) => {
+      /* Call the SendVerificaitonMail() function when new user sign 
+      up and returns promise 
+
+      this.SendVerificationMail();
+      this.SetUserData(result.user);
+    })
+    .catch((error) => {
+      window.alert(error.message);
+    });
+} */
 
 signUp(email: string, password: string): Observable<UserCredential> {
   this.router.navigate(['login']);
-  return from(createUserWithEmailAndPassword(this.auth, email, password));
+  return from(createUserWithEmailAndPassword(this.auth, email, password))
+  
   
 }
 
@@ -160,7 +177,7 @@ SetUserData(user: any) {
     email: user.email,
     displayName: user.displayName,
     photoURL: user.photoURL,
-  //01  emailVerified: user.emailVerified,
+ //  emailVerified: user.emailVerified,
   };
   return userRef.set(userData, {
     merge: true,
@@ -183,7 +200,8 @@ private updateUserData(user: any) {
     uid: user.uid,
     email: user.email,
     displayName: user.displayName,
-    photoURL: user.photoURL
+    photoURL: user.photoURL,
+    emailVerified: user.true,
   };
 
   return userRef.set(data, { merge: true });

@@ -8,4 +8,5 @@ export interface Client {
    completedAppointments?: string;
     totalSpend?: string;
     photoURL?: string;
+  //  emailVerified: boolean;
 }

@@ -19,10 +19,13 @@
   <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
     <div class="row">
       <mat-form-field>
+        <!--
+         RESTRICT VALIDATION containing numbers and spaces
+        -->
         <input
           type="text"
           matInput
-          formControlName="displayName"
+          formControlName="displayName" 
           placeholder="First Name"
         />
       </mat-form-field>
@@ -51,7 +54,11 @@
           matInput
           formControlName="phoneNumber"
           placeholder="Phone"
+          pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
         />
+       <!--  <mat-error *ngIf="phoneNumber?.errors?.['required']">
+          Phone Number is required
+        </mat-error> -->
       </mat-form-field>
     </div>
     
