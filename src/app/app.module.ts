@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   HighchartsChartModule
 } from "highcharts-angular";
-import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import {MatDatepickerModule} from '@angular/material/datepicker';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -42,13 +42,13 @@ import { AppointmentListComponent } from './components/appointment-list/appointm
 import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
 import { SalonComponent } from './components/salon/salon.component';
 import { ReportTestComponent } from './components/report-test/report-test.component';
-import { ProfileComponent } from './components/profile/profile.component'; 
+import { ProfileComponent } from './components/profile/profile.component';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 import { MenuComponent } from './components/menu/menu/menu.component';
 import { MenuCategoryComponent } from './components/menu/menu-category/menu-category.component';
 import { MenuCategoryItemComponent } from './components/menu/menu-category-item/menu-category-item.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import {MatTabsModule} from '@angular/material/tabs'; 
+import {MatTabsModule} from '@angular/material/tabs';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import {MatPaginatorModule} from '@angular/material/paginator';
@@ -155,17 +155,17 @@ import { AppBookingPaymentComponent } from './components/app-booking-payment/app
     MatSidenavModule,
     MatDividerModule,
     MatPaginatorModule,
-    GooglePayButtonModule,
+    //GooglePayButtonModule,
    /*  NgxMatNativeDateModule,
     NgxMatDatetimePickerModule,
 
     NgxMatTimepickerModule, */
-    
-    
-   
-    
-  
-   
+
+
+
+
+
+
     FormsModule,
     AngularFirestoreModule,
     AngularFireModule.initializeApp(environment.firebase),

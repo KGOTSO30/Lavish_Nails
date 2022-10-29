@@ -3,24 +3,48 @@
     width: 120px;
     margin: auto;
   }
-  
+
+.form-container{
+  padding-top: 100px;
+  width: 600px;
+  border: 0px;
+  background: transparent;
+  box-shadow: 0px 0px;
+}
+
+.profile-body{
+  background-image: url(/assets/images/profile-background.png);
+  height: 800px;
+  padding-top: 100px;
+background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/images/profile-background.png);
+}
+
+input{
+  color: pink;
+  font-size: 12px;
+
+}
+input::placeholder {
+  font-size: 12px;
+  color: pink
+}
+
   .profile-image > img {
     border-radius: 100%;
     object-fit: cover;
     object-position: center;
+
   }
-  
+
   .profile-image > button {
     position: absolute;
     bottom: 10px;
     right: 0;
   }
-  
-  .form-container {
-    max-width: 400px;
-  }
-  
+
   .row {
     display: flex;
     gap: 16px;
   }
+
+
