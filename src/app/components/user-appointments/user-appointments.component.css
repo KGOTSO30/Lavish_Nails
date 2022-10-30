@@ -1,0 +1,29 @@
+.user-appointments{
+  background-image: url(/assets/images/login-background.png);
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.view{
+  background-color: #E2B2A2;
+  color: black;
+  margin-bottom: 50px;
+}
+
+.icon{
+  height: 120px;
+  width: 120px;
+}
+
+.heading{
+  color: #E2B2A2;
+
+}
+
+.example-container{
+  width: 1000px;
+  
+}
