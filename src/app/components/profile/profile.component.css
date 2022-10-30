@@ -13,20 +13,23 @@
 }
 
 .profile-body{
-  background-image: url(/assets/images/profile-background.png);
   height: 800px;
   padding-top: 100px;
- background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/assets/images/profile-background.png);
+ background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), url(/assets/images/login-background.png);
 }
 
 input{
-  color: pink;
+  color: #E2B2A2;
   font-size: 12px;
 
 }
 input::placeholder {
   font-size: 12px;
-  color: pink
+  color:#E2B2A2;
+}
+
+::ng-deep .mat-form-field-infix{
+  color: #E2B2A2;
 }
 
   .profile-image > img {
@@ -46,6 +49,8 @@ input::placeholder {
     display: flex;
     gap: 16px;
   }
+
+  
 
 
 

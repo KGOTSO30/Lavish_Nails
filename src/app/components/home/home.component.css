@@ -50,6 +50,10 @@
   font-size: 40px;
 }
 
+.option-text{
+  outline-color: black;
+}
+
 .find-us-section{
   background-image: url(/assets/images/find-us.svg);
   height: 500px;

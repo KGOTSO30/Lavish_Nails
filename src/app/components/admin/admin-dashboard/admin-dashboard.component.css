@@ -148,6 +148,10 @@ section {
   color: rgba(0, 0, 0, 0.43);
 }
 
+mat-card{
+  color:#E4BDB0;
+}
+
 .count-section{
   margin-top: 10px;
   padding-left: 30px;
@@ -156,7 +160,7 @@ section {
   align-items: center;
   display: flex;
   justify-content: space-between;
-  background-image: url(/assets/images/time-background.svg);
+  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url(/assets/images/time-background.svg);
   background-color: rgba(0, 0, 0);
   border-radius: 15px;
 }
@@ -165,8 +169,6 @@ mat-calendar{
   height: 360px;
   width: 310px;
   margin-top: -30px;
-  color: lightblue;
-
 }
 
 .line{
@@ -185,6 +187,18 @@ mat-calendar{
 .other-stuff{
   margin-left: 70px;
   margin-top: 20px;
+}
+
+::ng-deep .mat-calendar-body-cell-content{
+  color:#E2B2A2;
+}
+
+::ng-deep .mat-calendar-body-label{
+  color:#E2B2A2;
+}
+
+::ng-deep .ng-star-inserted{
+  color: #E2B2A2;
 }
 
 .circle1,
