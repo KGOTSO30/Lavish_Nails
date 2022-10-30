@@ -364,6 +364,18 @@ getProducts2() {
        .valueChanges()
 }
 
+getUserAppointments() {
+  /*  return this.afs.collection('Store/Lavish/product', ref =>
+       ref.where('delete_flag', '==', 'N')
+          // .orderBy('name', 'desc')
+   ).valueChanges(); */
+    return this.afs.collection('Store/Lavish/user-carts', ref =>
+        ref.where('useremail', '==',  this.auth.currentUser?.email)
+            
+    )
+        .valueChanges()
+ }
+
 
 getAppProduct(docId: string) {
 //  coll = this._eStoreColl + "/" + localStorage.getItem('center') + "/" + coll;

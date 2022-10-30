@@ -27,6 +27,7 @@ import { AppBookingPaymentComponent } from './components/app-booking-payment/app
 import { AdminCartsComponent } from './components/admin/admin-carts/admin-carts.component';
 import { AdminUsersComponent } from './components/admin/admin-users/admin-users.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
+import { UserAppointmentsComponent } from './components/user-appointments/user-appointments.component';
 
 import {
   canActivate,
@@ -142,6 +143,7 @@ const routes: Routes = [
     component:  AdminUsersComponent
   },
   { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'user-appointments', component: UserAppointmentsComponent },
  
 ];
 
