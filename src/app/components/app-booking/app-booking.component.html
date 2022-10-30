@@ -37,26 +37,30 @@
           <h1 class="option">Acrylic Nails</h1>
           <div class="prompt1"> <h2 class="text">Price Range</h2> <h2 class="text">R300 - R400</h2> </div>
           <div class="prompt1"> <h2 class="text">Nail Sizes</h2> <h2 class="text">S, M, L</h2> </div>
-          <button class="book-session">
-            BOOK A SESSION
-          </button>
+
         </div>
       </div>
 
-      <h2 class="nail-sizes">Nail Sizes</h2>
-      <div class="nail-buttons">
-        <button class="btn">
-          S
-        </button>
-        <button class="btn">
-          M
-        </button>
-        <button class="btn">
-          L
-        </button>
+      <div class-="nails">
+          <h2 class="nail-sizes">Please select a nail size and service</h2>
+          <div class="nail-buttons">
+            <button class="btn">
+              S
+            </button>
+            <button class="btn">
+              M
+            </button>
+            <button class="btn">
+              L
+            </button>
+
+          </div>
 
       </div>
+
+
       <ul class="heroes">
+
         <li *ngFor="let hero of heroes">
           <button class="option-button" [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
             <span class="badge">{{hero.id}}</span>
@@ -128,7 +132,7 @@
       <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" placeholder="Search Recent Results">
       </mat-form-field>
-  </div>
+    </div>
     <div class="example-container mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="category">

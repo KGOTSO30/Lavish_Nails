@@ -18,10 +18,6 @@
         <mat-form-field>
           <input type="text" matInput formControlName="lastName" placeholder="Last Name" />
         </mat-form-field>
-      </div>
-      <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
-
-      <div class="row">
         <mat-form-field>
           <input type="text" matInput formControlName="email" placeholder="Email" />
         </mat-form-field>
@@ -29,6 +25,9 @@
           <input type="text" matInput formControlName="phoneNumber" placeholder="Phone" />
         </mat-form-field>
       </div>
+      <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
+
+
 
 
       <button type="submit" class="margin-top" mat-raised-button color="primary">

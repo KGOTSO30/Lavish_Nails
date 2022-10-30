@@ -129,14 +129,14 @@ td, th {
 
 .prompt-part{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   width: 1500px;
   padding-bottom: 50px;
 }
 
 .book-picture{
-
+  
   width: 400px;
   height: 350px;
 }
@@ -153,6 +153,17 @@ form{
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+}
+
+.heroes{
+  width: 400px;
+}
+.nails{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
 .prompt1{
@@ -177,7 +188,14 @@ form{
 }
 
 .nail-buttons{
+  margin-bottom: 22px;
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
 
+.nail-sizes{
+  text-align: center;
 }
 
 .nail-sizes,
@@ -190,7 +208,6 @@ form{
   border-radius: 20px;
   height: 40px;
   width: 40px;
-  margin-left: 20px;
 }
 
 .book-button{
