@@ -2,7 +2,7 @@
     max-width: 300px;
     margin: auto;
   }
-  
+
   .demo-inline-calendar-card {
     width: 300px;
   }
@@ -14,7 +14,7 @@ table {
 .mat-form-field {
   font-size: 14px;
   width: 50%;
-  
+
 }
 
 td, th {
@@ -37,19 +37,29 @@ td, th {
   cursor: pointer;
   position: relative;
   left: 0;
-  background-color: #EEE;
+  background-color: #D9D9D9;
   margin: .5em;
   padding: 0;
-  border-radius: 4px;
+  border-radius: 15px;
   display: flex;
   align-items: stretch;
-  height: 1.8em;
+  height: 40px;
+  border: 0px;
+  width: 400px;
 }
 
 .heroes button:hover {
   color: #2c3a41;
   background-color: #e6e6e6;
   left: .1em;
+}
+
+.welcome-section {
+  background-image: url(/assets/images/hompageBannerBackground.svg);
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .heroes button:active {
@@ -75,14 +85,117 @@ td, th {
 .heroes .badge {
   display: inline-block;
   font-size: small;
-  color: white;
+  font-weight:200;
+  color: black;
   padding: 0.8em 0.7em 0 0.7em;
-  background-color: #405061;
+  background-color:#D4AF9C;
   line-height: 1em;
   margin-right: .8em;
-  border-radius: 4px 0 0 4px;
+  border-radius: 15px 0 0 16px;
+  padding-bottom: 4px;
+  text-align: center;
+  height: 40px;
+  font-family: 'ZCOOL XiaoWei';
 }
 
 .heroes .name {
   align-self: center;
+  font-family: 'ZCOOL XiaoWei';
+}
+
+.mat-card{
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+}
+
+.continue{
+  background: rgba(0, 0, 0, 0.62);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  height: 100px;
+  width: 600px;
+  font-size: 30px;
+  color: #E2B2A2;
+}
+
+.option-button{
+  height: 100px;
+  width: 400px;
+}
+
+.prompt-part{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 1500px;
+  padding-bottom: 50px;
+}
+
+.book-picture{
+
+  width: 400px;
+  height: 350px;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.prompt1{
+  display: flex;
+  justify-content: space-between;
+  width: 300px;
+}
+
+.text,
+.option{
+  font-family: 'ZCOOL XiaoWei';
+}
+
+.book-session{
+  background: rgba(0, 0, 0, 0.62);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  color: #E2B2A2;
+  border: 0px;
+  height: 50px;
+  width: 200px;
+}
+
+.nail-buttons{
+
+}
+
+.nail-sizes,
+.btn{
+  font-family: 'ZCOOL XiaoWei';
+}
+
+.btn{
+  background:#E2B2A2;
+  border-radius: 20px;
+  height: 40px;
+  width: 40px;
+  margin-left: 20px;
+}
+
+.book-button{
+  background: #E1BFB4;
+  border: 1px solid #EAAC98;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
