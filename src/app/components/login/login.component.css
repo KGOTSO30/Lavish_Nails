@@ -22,6 +22,14 @@
   width: 300px;
 }
 
+.input{
+  font-size: 20px;
+}
+
+.input::placeholder{
+  font-size: 40px;
+}
+
 .or {
   color: #E2B2A2;
   padding: 0px 60px;
@@ -31,12 +39,13 @@
 .other-prompt {
   color: #E2B2A2;
   padding: 60px 0px;
-  font-size: 40px;
+  font-size: 20px;
 }
 
 .other-logos {
   display: flex;
   flex-direction: row;
+  margin-top: -70px;
 }
 
 .email,
@@ -88,7 +97,7 @@ section {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
   color: #E2B2A2;
-
+  margin-top: 30px;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -112,4 +121,8 @@ section {
   border: none;
   background: none;
   padding: 0px;
+}
+
+.action{
+  margin-top: -80px;
 }

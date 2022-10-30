@@ -6,12 +6,12 @@
             <!-- searchmode -->
             <form #searchFormData="ngForm" class="example-form">
               <mat-card-actions align="start">
-            
+
                 <span class="med-spacer"></span>
                 <span matTooltip="Add New">
-                    <button type="button" mat-raised-button color="primary" (click)="toggle('addMode');">Continue to booking</button>
+                    <button class="continue" type="button" mat-raised-button color="primary" (click)="toggle('addMode');">Continue to booking</button>
                 </span>
-              
+
             </mat-card-actions>
 
             </form>
@@ -21,66 +21,93 @@
   <!-- addMode -->
   <ng-template #showAddMode>
     <form #addDataForm="ngForm" (ngSubmit)="setAppData(addDataForm.value);" novalidate>
-        <mat-error *ngIf="savedChanges">
+      <mat-error *ngIf="savedChanges">
 
-            Data is saved, proceed below.
-            <label class="small-spacer"></label>
+          Data is saved, proceed below.
+          <label class="small-spacer"></label>
 
-        </mat-error>
-        <div *ngIf="!savedChanges">
-
-            <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
+      </mat-error>
+      <div class="body" *ngIf="!savedChanges">
 
 
-      <h2>Services</h2>
+      <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
+      <div class="prompt-part">
+        <img class="book-picture" src="assets/images/book-picture.svg">
+        <div class="prompt">
+          <h1 class="option">Acrylic Nails</h1>
+          <div class="prompt1"> <h2 class="text">Price Range</h2> <h2 class="text">R300 - R400</h2> </div>
+          <div class="prompt1"> <h2 class="text">Nail Sizes</h2> <h2 class="text">S, M, L</h2> </div>
+
+        </div>
+      </div>
+
+      <div class-="nails">
+          <h2 class="nail-sizes">Please select a nail size and service</h2>
+          <div class="nail-buttons">
+            <button class="btn">
+              S
+            </button>
+            <button class="btn">
+              M
+            </button>
+            <button class="btn">
+              L
+            </button>
+
+          </div>
+
+      </div>
+
+
       <ul class="heroes">
+
         <li *ngFor="let hero of heroes">
-          <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+          <button class="option-button" [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
             <span class="badge">{{hero.id}}</span>
             <span class="name">{{hero.name}}</span>
           </button>
         </li>
       </ul>
 
-  
-            <mat-form-field class="example-form">
-              <div *ngIf="selectedHero">
 
-                <div class="mat-form-field">
-                  <label for="hero-name">Service Chosen :  </label>
-                  <input id="hero-name" [(ngModel)]="selectedHero.name" name ="hero-name" placeholder="name">
-                </div>
-              </div>
+      <mat-form-field class="example-form">
+        <div *ngIf="selectedHero">
 
-              <input matInput [matDatepicker]="pickerfromdt" [min]="currentDate" placeholder="Appointment Date" id="fromdt"  name="AppointmentDate" #fromdt="ngModel" [ngModel]="currentDate" required>
-              <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
-              <mat-datepicker #pickerfromdt></mat-datepicker>
-             
-              <span class="med-spacer"></span>
-              <div class="form-group col-md-6">
-                <span class="med-spacer"></span>
-                <span class="med-spacer"></span>
-                <label class="  col-form-label text-md-right" for="aptTime">Time</label>
-    
-                <input type="time"  [min]="min" [max]="max" class="form-control"  name="aptTime" id="aptTime"  [(ngModel)]="value" required>
-    
-              </div>
-          </mat-form-field>
-
-         
-          <mat-card-actions align="start">
-            <button type="submit" mat-raised-button [disabled]="!addDataForm.valid" color="primary">Book</button>
-
-            <span class="med-spacer"></span>
-            <span matTooltip="Search">
-
-            </span>
-            <span class="small-spacer"></span>
-          <!--   <span matTooltip="Show Recent Results">
-              <mat-icon color="primary" (click)="getData();">cached</mat-icon>
-            </span> -->
-        </mat-card-actions>
+          <div class="mat-form-field">
+            <label for="hero-name">Service Chosen :  </label>
+            <input id="hero-name" [(ngModel)]="selectedHero.name" name ="hero-name" placeholder="name">
+          </div>
         </div>
+
+        <input matInput [matDatepicker]="pickerfromdt" [min]="currentDate" placeholder="Appointment Date" id="fromdt"  name="AppointmentDate" #fromdt="ngModel" [ngModel]="currentDate" required>
+        <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
+        <mat-datepicker #pickerfromdt></mat-datepicker>
+
+        <span class="med-spacer"></span>
+        <div class="form-group col-md-6">
+          <span class="med-spacer"></span>
+          <span class="med-spacer"></span>
+          <label class="  col-form-label text-md-right" for="aptTime">Time</label>
+
+          <input type="time"  [min]="min" [max]="max" class="form-control"  name="aptTime" id="aptTime"  [(ngModel)]="value" required>
+
+        </div>
+      </mat-form-field>
+
+
+      <mat-card-actions align="start">
+        <button class="book-button" type="submit" mat-raised-button [disabled]="!addDataForm.valid" color="primary">Book</button>
+
+        <span class="med-spacer"></span>
+        <span matTooltip="Search">
+
+        </span>
+        <span class="small-spacer"></span>
+      <!--   <span matTooltip="Show Recent Results">
+          <mat-icon color="primary" (click)="getData();">cached</mat-icon>
+        </span> -->
+      </mat-card-actions>
+      </div>
 
     </form>
   </ng-template>
@@ -105,7 +132,7 @@
       <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" placeholder="Search Recent Results">
       </mat-form-field>
-  </div>
+    </div>
     <div class="example-container mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort>
             <ng-container matColumnDef="category">
