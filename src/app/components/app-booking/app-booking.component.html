@@ -30,8 +30,9 @@
                                                             <br><br>
 
                                                           </h1> <br>
-          <h3>Acrylic Nails</h3>
+
           <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-50px">
+            <h3>Acrylic Nails</h3>
             <h3 class="mt-5 mb-4"> {{selectedHero!.name}} (Small Nails)</h3>
             <h3 class="mt-5 mb-4"> R {{selectedHero!.id}}.00</h3>
           </div>
@@ -56,10 +57,9 @@
 
 
 
-          <div class="col-md-5 mb-2" style="display: flex; justify-content: space-around; align-items:center;">
-            <button style="width: 150px" (click)="makePayment(selectedHero!.id/2,selectedHero!.name)" class="btn  btn-block">Pay Now</button>
-            <button style="width: 150px" class="btn  btn-block">Pay Later</button>
-          </div>
+
+            <button style="width: 200px" (click)="makePayment(selectedHero!.id/2,selectedHero!.name)" class="btn  btn-block">Pay Now</button> <br>
+            <button style="width: 200px; margin-top: 20px;" class="btn  btn-block">Pay Later</button>
 
         </div>
           <!-- Data is saved, proceed below.-->
@@ -141,7 +141,7 @@
           <span class="med-spacer"></span>
           <label class="  col-form-label text-md-right" for="aptTime">Time</label>
 
-          <input type="time"  [min]="min" [max]="max" class="form-control"  name="aptTime" id="aptTime"  [(ngModel)]="value" required>
+          <input style="width:200px;" type="time"  [min]="min" [max]="max" class="form-control"  name="aptTime" id="aptTime"  [(ngModel)]="value" required>
 
         </div>
       </mat-form-field>
