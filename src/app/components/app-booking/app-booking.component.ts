@@ -10,6 +10,14 @@ import { MatSort } from '@angular/material/sort';
 import { Hero,Nail } from '../menu/hero';
 import { HEROES,PolyGel, Rubberbase } from '../menu/models';
 //import { DatePipe } from '@angular/common';
+import {
+  Auth,
+  signInWithEmailAndPassword,
+  authState,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  UserInfo,
+  UserCredential,} from '@angular/fire/auth'
 
 
 @Component({
@@ -80,12 +88,14 @@ selectedHero?: Hero;
 
   constructor(private appointmentService: CrudService,
      private auth: AuthService,
+     private auth1: Auth,
      //public datepipe: DatePipe
      ) {
     this.appointment.appointmentDate = this.selected;
    }
 
   ngOnInit(): void {
+    this.invokeStripe();
     this.toggleField = "searchMode";
     
     this.dataSource = new MatTableDataSource(this.members);
@@ -283,6 +293,47 @@ applyFilter(event: Event) {
 //     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
 //     this.dataSource.filter = filterValue;
 // }
+
+
+
+paymentHandler: any = null;
+  
+makePayment(amount: any, service: any) {
+  const paymentHandler = (<any>window).StripeCheckout.configure({
+    key: 'pk_test_51LvVKoBFn7mfkH25MPo8yiqOUcx1wSKIx15Xb16TkqDRmaMzoeBBRCUSPa1qjF0mzySFl6sdznRWBh52TQIBaLp800WTJBrdV8',
+    locale: 'auto',
+    token: function (stripeToken: any) {
+      console.log(stripeToken);
+      alert('Stripe token generated!---Maybe you might wanna say Payment Successful---Again why devs need designers');
+    },
+  });
+  paymentHandler.open({
+    name: 'Lavished',
+    description: service + 'why devs need designers',
+    amount: amount * 100,
+    email: this.auth1.currentUser?.email,
+    currency: 'ZAR'
+  });
+}
+invokeStripe() {
+  if (!window.document.getElementById('stripe-script')) {
+    const script = window.document.createElement('script');
+    script.id = 'stripe-script';
+    script.type = 'text/javascript';
+    script.src = 'https://checkout.stripe.com/checkout.js';
+    script.onload = () => {
+      this.paymentHandler = (<any>window).StripeCheckout.configure({
+        key: 'pk_test_51LvVKoBFn7mfkH25MPo8yiqOUcx1wSKIx15Xb16TkqDRmaMzoeBBRCUSPa1qjF0mzySFl6sdznRWBh52TQIBaLp800WTJBrdV8',
+        locale: 'auto',
+        token: function (stripeToken: any) {
+          console.log(stripeToken);
+          alert('Payment has been successfull!');
+        },
+      });
+    };
+    window.document.body.appendChild(script);
+  }
+}
 ngOnDestroy() {
 
   if (this.querySubscription) {

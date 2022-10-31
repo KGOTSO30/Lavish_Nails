@@ -21,12 +21,25 @@
   <!-- addMode -->
   <ng-template #showAddMode>
     <form #addDataForm="ngForm" (ngSubmit)="setAppData(addDataForm.value);" novalidate>
-      <mat-error *ngIf="savedChanges">
+      <mat-card *ngIf="savedChanges">
 
+        <div class="container">
+          <h2 class="mt-5 mb-4"> Confirmation Receipt goes here</h2>
+          <h3 class="mt-5 mb-4"> R {{selectedHero!.id}}.00</h3>
+          <h3 class="mt-5 mb-4"> {{selectedHero!.name}}</h3>
+          <h3 class="mt-5 mb-4"> Confirmation{{myDocData.AppointmentDate}} goes here</h3>
+         
+          <h3 class="mt-5 mb-4">Booking @ 50%  R{{selectedHero!.id/2}}.00</h3>
+          <div class="col-md-5 mb-2">
+            <button (click)="makePayment(selectedHero!.id,selectedHero!.name)" class="btn  btn-block">Pay Now</button>
+            <button class="btn  btn-block">Pay Later</button>
+          </div>
+      
+        </div>
           Data is saved, proceed below.
           <label class="small-spacer"></label>
 
-      </mat-error>
+      </mat-card>
       <div class="body" *ngIf="!savedChanges">
 
 
