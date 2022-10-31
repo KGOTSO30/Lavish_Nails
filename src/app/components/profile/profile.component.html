@@ -10,6 +10,9 @@
     </div>
     <input #inputField hidden type="file" (change)="uploadFile($event, user)" />
 
+    <div>
+      
+    </div>
     <form class="margin-top" [formGroup]="profileForm" (ngSubmit)="saveProfile()">
       <div class="row">
         <mat-form-field>
@@ -30,7 +33,7 @@
 
 
 
-      <button type="submit" class="margin-top" mat-raised-button color="primary">
+      <button style="background: rgba(0, 0, 0, 0.62); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); color:#E2B2A2; border-radius: 20px; width: 100px; margin-top:50px" type="submit" class="margin-top" mat-raised-button color="primary">
         Save
       </button>
     </form>

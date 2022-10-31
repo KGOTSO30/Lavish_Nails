@@ -2,7 +2,7 @@
 
   <mat-card>
     <mat-card-content>
-        <div *ngIf="(toggleField=='searchMode') else (toggleField=='addMode')? showAddMode : ((toggleField=='editMode')? showEditMode : showResMode)">
+        <div  *ngIf="(toggleField=='searchMode') else (toggleField=='addMode')? showAddMode : ((toggleField=='editMode')? showEditMode : showResMode)">
             <!-- searchmode -->
             <form #searchFormData="ngForm" class="example-form">
               <mat-card-actions align="start">
@@ -12,7 +12,7 @@
                     <button class="continue" type="button" mat-raised-button color="primary" (click)="toggle('addMode');">Continue to booking</button>
                 </span>
 
-            </mat-card-actions>
+              </mat-card-actions>
 
             </form>
         </div>
@@ -76,12 +76,24 @@
 
         <li *ngFor="let hero of heroes">
           <button class="option-button" [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-            <span class="badge">{{hero.id}}</span>
-            <span class="name">{{hero.name}}</span>
+            <span class="badge">R {{hero.id}}</span>
+            <span class="name"> {{hero.name}}</span>
           </button>
         </li>
       </ul>
 
+      <div class="extras">
+        Would you like any extras?
+        <div style="margin-top:20px;">
+          <input type="radio" id="html" name="fav_language" value="HTML">
+          <label for="html">Yes</label><br>
+        </div>
+        <div style="margin-bottom:50px;">
+          <input type="radio" id="css" name="fav_language" value="CSS">
+          <label for="css">No</label><br>
+        </div>
+        Please select a date and time
+      </div>
 
       <mat-form-field class="example-form">
         <div *ngIf="selectedHero">
@@ -217,7 +229,7 @@
             <ul class="heroes">
               <li *ngFor="let hero of heroes">
                 <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-                  <span class="badge">{{hero.id}}</span>
+                  <span class="badge"> {{hero.id}}</span>
                   <span class="name">{{hero.name}}</span>
                 </button>
               </li>
@@ -236,12 +248,15 @@
               <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
               <mat-datepicker #pickerfromdt></mat-datepicker>
           </mat-form-field>
+
           <div class="form-group col-md-6">
             <label class="  col-form-label text-md-right" for="aptTime">Time</label>
 
             <input type="time"  class="form-control" name="aptTime" id="aptTime" [(ngModel)] = "myDocData.aptTime"  >
 
           </div>
+
+
         </div>
     </form>
   </ng-template>

@@ -1,50 +1,55 @@
-
-<h1>My Appointments</h1>
-<button type="button" (click)="getDataByAppDoc();" mat-raised-button 
-color="primary">View Appointments</button>
-
-
-<div class="example-container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" matSort>
-        <ng-container matColumnDef="category">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row.useremail}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="Appointment Date">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Appointment Date</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString('yyyy-MM-dd') }} </mat-cell>
-            </ng-container>
-        <ng-container matColumnDef="name">
-            <mat-header-cell *matHeaderCellDef mat-sort-header>Service Name</mat-header-cell>
-            <mat-cell *matCellDef="let row"> {{row._serviceName}} </mat-cell>
-        </ng-container>
-        <ng-container matColumnDef="price">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-                <mat-cell *matCellDef="let row"> R{{row._price}}.00 </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="_id">
-              <mat-header-cell *matHeaderCellDef> action </mat-header-cell>
-              <mat-cell *matCellDef="let row">
-
-                  <!--  <span matTooltip="Edit">
-                      <button mat-icon-button (click)="getAppDoc(row._id)">
-                          <mat-icon color="primary">edit</mat-icon>
-                      </button>
-                  </span> -->
-                  <span matTooltip="Delete">
-                      <button mat-icon-button (click)="deleteAppDoc(row._id)">
-                          <mat-icon color="primary">delete</mat-icon>
-                      </button>
-                  </span>
+<div class="user-appointments">
+  <img class="icon" src="assets/images/icon.svg" >
+  <h1 class="heading">MY APPOINTMENTS</h1>
+  <button class="view" type="button" (click)="getDataByAppDoc();" mat-raised-button color="primary">View Appointments</button>
 
 
+  <div class="example-container mat-elevation-z8">
+    <mat-table [dataSource]="dataSource" matSort style="background-color:rgba(0, 0, 0, 0.3)">
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef mat-sort-header style="color:#E2B2A2">USERNAME</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.useremail}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="Appointment Date">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>APPOINTMENT DATE</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString('yyyy-MM-dd') }} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>SERVICE NAME</mat-header-cell>
+        <mat-cell *matCellDef="let row"> {{row._serviceName}} </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>PRICE</mat-header-cell>
+        <mat-cell *matCellDef="let row"> R{{row._price}}.00 </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="_id">
+        <mat-header-cell *matHeaderCellDef> action </mat-header-cell>
+        <mat-cell *matCellDef="let row">
 
-              </mat-cell>
-          </ng-container>
+          <!--  <span matTooltip="Edit">
+                        <button mat-icon-button (click)="getAppDoc(row._id)">
+                            <mat-icon color="primary">edit</mat-icon>
+                        </button>
+                    </span> -->
+          <span matTooltip="Delete">
+            <button mat-icon-button (click)="deleteAppDoc(row._id)">
+              <mat-icon color="primary">delete</mat-icon>
+            </button>
+          </span>
 
 
-        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+        </mat-cell>
+      </ng-container>
+
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+    <mat-paginator style="background-color:rgba(0, 0, 0, 0.3)" #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
 </div>
+
+
+

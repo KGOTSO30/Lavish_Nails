@@ -14,7 +14,7 @@
 
   <ng-container *ngIf="authService.user$ | async as user; else loginButton">
     <div>
-      <button mat-button [matMenuTriggerFor]="userMenu">
+      <button mat-button [matMenuTriggerFor]="userMenu" style="color:black">
         <mat-icon>account_circle</mat-icon>
         {{ user.displayName }}
         <mat-icon>expand_more</mat-icon>
@@ -52,3 +52,13 @@
 -->
 
 <router-outlet></router-outlet>
+
+<div class="footer">
+  <div class="prompt">
+    Do you have a question?
+    <button class="prompt-button" mat-button routerLink="home">
+      Contact Us
+    </button>
+  </div>
+
+</div>
