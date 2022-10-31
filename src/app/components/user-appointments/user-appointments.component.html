@@ -5,7 +5,7 @@
 
 
   <div class="example-container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" matSort style="background-color:rgba(0, 0, 0, 0.1)">
+    <mat-table [dataSource]="dataSource" matSort style="background-color:rgba(0, 0, 0, 0.3)">
       <ng-container matColumnDef="category">
         <mat-header-cell *matHeaderCellDef mat-sort-header style="color:#E2B2A2">USERNAME</mat-header-cell>
         <mat-cell *matCellDef="let row"> {{row.useremail}} </mat-cell>
@@ -46,7 +46,7 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-paginator style="background-color:rgba(0, 0, 0, 0.1)" #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5"
+    <mat-paginator style="background-color:rgba(0, 0, 0, 0.3)" #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5"
       [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
   </div>
 </div>
