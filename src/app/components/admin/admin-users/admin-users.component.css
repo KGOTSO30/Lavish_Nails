@@ -1,4 +1,9 @@
 
 table {
-    width: 100%;
+    width: 90%;
+  }
+
+
+  th, td{
+    color: #E2B2A2;
   }

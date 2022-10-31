@@ -33,11 +33,11 @@
 </mat-toolbar>
 
 <mat-menu #userMenu="matMenu">
-  <button mat-button [routerLink]="['/profile']">Profile</button>
+  <button mat-menu-item [routerLink]="['/profile']">Profile</button>
 
-  <button mat-button [routerLink]="['/user-appointments']">Appointments</button>
+  <button mat-menu-item [routerLink]="['/user-appointments']">Appointments</button>
 
-  <button mat-menu-item [routerLink]="['/admin-dashboard']">admin</button>
+  <button mat-menu-item [routerLink]="['/admin-dashboard']">Admin</button>
 
   <button mat-menu-item (click)="logout()">Logout</button>
 </mat-menu>

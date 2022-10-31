@@ -6,11 +6,11 @@
             <!-- searchmode -->
             <form #searchFormData="ngForm" class="example-form">
               <mat-card-actions align="start">
-               <button type="button" (click)="toggle('resMode');getDataByAppDoc();" mat-raised-button [disabled]="!searchFormData.valid"
+               <button style="background: rgba(0, 0, 0, 0.62); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); border-radius: 20px; color:#E2B2A2" type="button" (click)="toggle('resMode');getDataByAppDoc();" mat-raised-button [disabled]="!searchFormData.valid"
                     color="primary">View Appointments</button>
-              
+
                 <span class="small-spacer"></span>
-               
+
             </mat-card-actions>
 
             </form>
@@ -78,101 +78,101 @@
   </ng-template>
 
   <!-- Results mode -->
-  <ng-template #showResMode>
-    <mat-card-actions align="start">
+  <ng-template #showResMode >
+    <div style="background-image: url(/assets/images/login-background.png)">
+      <mat-card-actions align="start">
         <span class="med-spacer"></span>
         <span class="med-spacer"></span>
         <span class="med-spacer"></span>
-       <!--  <span matTooltip="Add New">
-            <mat-icon color="primary" (click)="toggle('addMode')">add</mat-icon>
-        </span> -->
+        <!--  <span matTooltip="Add New">
+                  <mat-icon color="primary" (click)="toggle('addMode')">add</mat-icon>
+              </span> -->
         <span class="small-spacer"></span>
         <span matTooltip="Search All">
-            <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
+          <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
         </span>
-    </mat-card-actions>
+      </mat-card-actions>
 
 
-    <div class="example-header">
-      <mat-form-field>
+      <div class="example-header">
+        <mat-form-field>
           <input matInput (keyup)="applyFilter($event)" placeholder="Search Recent Results">
-      </mat-form-field>
-  </div>
-    <div class="example-container mat-elevation-z8">
+        </mat-form-field>
+      </div>
+      <div class="example-container mat-elevation-z8">
         <mat-table [dataSource]="dataSource" matSort>
-            <ng-container matColumnDef="category">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Username</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row.useremail}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="Appointment Date">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Appointment Date</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString('yyyy-MM-dd') }} </mat-cell>
-                </ng-container>
-            <ng-container matColumnDef="name">
-                <mat-header-cell *matHeaderCellDef mat-sort-header>Service Name</mat-header-cell>
-                <mat-cell *matCellDef="let row"> {{row._serviceName}} </mat-cell>
-            </ng-container>
-            <ng-container matColumnDef="price">
-                    <mat-header-cell *matHeaderCellDef mat-sort-header>Price</mat-header-cell>
-                    <mat-cell *matCellDef="let row"> R{{row._price}}.00 </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="_id">
-                  <mat-header-cell *matHeaderCellDef> action </mat-header-cell>
-                  <mat-cell *matCellDef="let row">
+          <ng-container matColumnDef="category">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>USERNAME</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.useremail}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="Appointment Date">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>APPOINTMENT DETAILS</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString('yyyy-MM-dd') }} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>SERVICE NAME</mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row._serviceName}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>PRICE</mat-header-cell>
+            <mat-cell *matCellDef="let row"> R{{row._price}}.00 </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="_id">
+            <mat-header-cell *matHeaderCellDef> ACTION </mat-header-cell>
+            <mat-cell *matCellDef="let row">
 
-                       <span matTooltip="Edit">
-                          <button mat-icon-button (click)="getAppDoc(row._id)">
-                              <mat-icon color="primary">edit</mat-icon>
-                          </button>
-                      </span>
-                      <span matTooltip="Delete">
-                          <button mat-icon-button (click)="deleteAppDoc(row._id)">
-                              <mat-icon color="primary">delete</mat-icon>
-                          </button>
-                      </span>
-
-
-
-                  </mat-cell>
-              </ng-container>
+              <span matTooltip="Edit">
+                <button mat-icon-button (click)="getAppDoc(row._id)">
+                  <mat-icon color="primary">edit</mat-icon>
+                </button>
+              </span>
+              <span matTooltip="Delete">
+                <button mat-icon-button (click)="deleteAppDoc(row._id)">
+                  <mat-icon color="primary">delete</mat-icon>
+                </button>
+              </span>
 
 
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+            </mat-cell>
+          </ng-container>
+
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
         </mat-table>
-        <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        <mat-paginator #paginator [length]="dataSource.data.length" [pageIndex]="0" [pageSize]="5"
+          [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+      </div>
+
     </div>
+
   </ng-template>
 
   <!-- edit mode -->
-  <ng-template #showEditMode>
-    <form #editDataForm="ngForm" (ngSubmit)="updateAppData(editDataForm.value);" novalidate>
+  <ng-template #showEditMode >
+    <form #editDataForm="ngForm" (ngSubmit)="updateAppData(editDataForm.value);" novalidate style="display: flex; flex-direction:column; justify-content:center; align-items: center;">
         <input type="hidden" name="_id" id="_id" [ngModel]="myDocData._id" required>
         <mat-error *ngIf="savedChanges">
             Data is saved.
             <label class="small-spacer"></label>
             <mat-icon (click)="this.editDataForm.reset();savedChanges=false;toggle('searchMode');">clear</mat-icon>
         </mat-error>
-        <div *ngIf="!savedChanges">
+        <div *ngIf="!savedChanges" >
 
             <mat-error *ngIf="error">Error: {{ errorMessage }}</mat-error>
-            <mat-card-actions align="start">
-                <button type="submit" mat-raised-button [disabled]="!this.editDataForm.valid || this.editDataForm.pristine" color="primary">Update</button>
-                <span class="med-spacer"></span>
-                <span matTooltip="Search">
-                    <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
-                </span>
-                <span class="small-spacer"></span>
 
-            </mat-card-actions>
-            <h2>Services</h2>
+            <h1 style="font-size:40px; text-align: center; font-family: ZCOOL XiaoWei; margin-bottom: 50px; margin-top: 50px;">Update Booking</h1>
             <ul class="heroes">
-              <li *ngFor="let hero of heroes">
-                <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-                  <span class="badge">{{hero.id}}</span>
+              <!--
+                <div *ngFor="let hero of heroes">
+                <button style="background-color:#D9D9D9; height: 40px; width:300px; margin-top:20px; border-radius: 12px; border: 0px; text-align:left; color:black; font-family: ZCOOL XiaoWei; display: flex;" [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
+                  <span style="background-color: #E2B2A2; height: 40px; color:black; font-family: ZCOOL XiaoWei; border-radius: 12px" class="badge">R {{hero.id}}</span>
                   <span class="name">{{hero.name}}</span>
                 </button>
-              </li>
+              </div>
+              -->
+
             </ul>
 
             <div *ngIf="selectedHero">
@@ -183,12 +183,25 @@
                 <input id="hero-name" [(ngModel)]="myDocData.name" placeholder="name">
               </div>
             </div>
-            <mat-form-field class="example-form">
-              <input matInput [matDatepicker]="pickerfromdt" placeholder="Appointment Date" id="fromdt" name="AppointmentDate" #fromdt="ngModel" [ngModel]="myDocData.AppointmentDate" required>
-              <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
-              <mat-datepicker #pickerfromdt></mat-datepicker>
+            <h3>Please select preferred date</h3>
+          <mat-form-field class="example-form" >
+            <input matInput [matDatepicker]="pickerfromdt" placeholder="Appointment Date" id="fromdt" name="AppointmentDate" #fromdt="ngModel" [ngModel]="myDocData.AppointmentDate" required>
+            <mat-datepicker-toggle matSuffix [for]="pickerfromdt"></mat-datepicker-toggle>
+            <mat-datepicker #pickerfromdt></mat-datepicker>
           </mat-form-field>
-        
+          <h3>Please select preferred time</h3>
+          <input style="width: 500px;" type="time"  class="form-control" name="aptTime" id="aptTime" required>
+          <mat-card-actions align="start">
+            <button type="submit" mat-raised-button [disabled]="!this.editDataForm.valid || this.editDataForm.pristine"
+              color="primary">Update</button>
+            <span class="med-spacer"></span>
+            <span matTooltip="Search">
+              <mat-icon color="primary" (click)="toggle('searchMode')">search</mat-icon>
+            </span>
+            <span class="small-spacer"></span>
+
+          </mat-card-actions>
+
     </form>
   </ng-template>
 

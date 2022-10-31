@@ -21,22 +21,49 @@
   <!-- addMode -->
   <ng-template #showAddMode>
     <form #addDataForm="ngForm" (ngSubmit)="setAppData(addDataForm.value);" novalidate>
+
       <mat-card *ngIf="savedChanges">
 
-        <div class="container">
-          <h2 class="mt-5 mb-4"> Confirmation Receipt goes here</h2>
-          <h3 class="mt-5 mb-4"> R {{selectedHero!.id}}.00</h3>
-          <h3 class="mt-5 mb-4"> {{selectedHero!.name}}</h3>
-          
-         
-          <h3 class="mt-5 mb-4">Booking @ 50%  R{{selectedHero!.id/2}}.00</h3>
-          <div class="col-md-5 mb-2">
-            <button (click)="makePayment(selectedHero!.id,selectedHero!.name)" class="btn  btn-block">Pay Now</button>
-            <button class="btn  btn-block">Pay Later</button>
+        <div class="container" style="width:500px; border:0px">
+          <h1 class="mt-5 mb-4" style="text-align: center"> Payment <br>
+                                                            Summary <br>
+                                                            <br><br>
+
+                                                          </h1> <br>
+          <h3>Acrylic Nails</h3>
+          <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-50px">
+            <h3 class="mt-5 mb-4"> {{selectedHero!.name}} (Small Nails)</h3>
+            <h3 class="mt-5 mb-4"> R {{selectedHero!.id}}.00</h3>
           </div>
-      
+
+          <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
+            <h3 class="mt-5 mb-4"> Extras</h3>
+            <h3 class="mt-5 mb-4"> R0.00</h3>
+          </div>
+          <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
+            <h3 class="mt-5 mb-4"> <b>VAT</b></h3>
+            <h3 class="mt-5 mb-4"> R {{selectedHero!.id * 0.15}}</h3>
+          </div>
+          <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
+            <h3 class="mt-5 mb-4"> <b>TOTAL (VAT INCL)</b></h3>
+            <h3 class="mt-5 mb-4">R {{selectedHero!.id}}.00</h3>
+          </div>
+          <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
+            <h3 class="mt-5 mb-4"> <b>Deposit @ 50% </b></h3>
+            <h3 class="mt-5 mb-4"> R{{selectedHero!.id/2}}.00</h3>
+          </div>
+
+
+
+
+          <div class="col-md-5 mb-2" style="display: flex; justify-content: space-around; align-items:center;">
+            <button style="width: 150px" (click)="makePayment(selectedHero!.id/2,selectedHero!.name)" class="btn  btn-block">Pay Now</button>
+            <button style="width: 150px" class="btn  btn-block">Pay Later</button>
+          </div>
+
         </div>
-          Data is saved, proceed below.
+          <!-- Data is saved, proceed below.-->
+
           <label class="small-spacer"></label>
 
       </mat-card>

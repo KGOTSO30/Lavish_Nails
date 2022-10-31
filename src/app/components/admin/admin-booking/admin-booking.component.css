@@ -1,0 +1,9 @@
+mat-table
+{
+  background-color: rgba(0, 0, 0, 0.3)
+}
+
+mat-header-cell,
+mat-cell {
+  color: #E2B2A2;
+}
