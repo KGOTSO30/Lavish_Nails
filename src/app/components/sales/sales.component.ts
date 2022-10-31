@@ -166,7 +166,7 @@ this.afs.collection('/servicesRendered')
 
      ///fILTERS
      private applyFilters(){
-      this.filteredServiceTypes = _.filter(this.serviceTypes, _.conforms(this.filters))
+    //  this.filteredServiceTypes = _.filter(this.serviceTypes, _.conforms(this.filters))
      }
      
   applyFilter(event: Event) {

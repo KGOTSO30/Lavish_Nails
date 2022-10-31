@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild,  Inject } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import {Appointment} from 'src/app/models/appointment.model'
@@ -6,13 +6,26 @@ import {CrudService} from 'src/app/shared/crud.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatDialogConfig} from '@angular/material/dialog';
+import { CourseDialogComponent } from '../course-dialog/course-dialog.component';
+//import {MatDialog, MatDialogConfig} from "@angular/material";
+
+
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-user-appointments',
   templateUrl: './user-appointments.component.html',
   styleUrls: ['./user-appointments.component.css']
 })
-export class UserAppointmentsComponent implements OnInit {
+
+
+export  class UserAppointmentsComponent implements OnInit {
+ 
+  
   members!: any[];
   dataSource!: MatTableDataSource<any>;
   myDocData: any;
@@ -32,7 +45,31 @@ export class UserAppointmentsComponent implements OnInit {
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
   displayedColumns = ['category', 'Appointment Date', 'name', 'price', '_id'];
 
-  constructor(private auth: AuthService,) { }
+  constructor(private auth: AuthService, private dialog: MatDialog) { }
+  openDialog() {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+      id: 1,
+      title: 'Angular For Beginners'
+  };
+    this.dialog.open(CourseDialogComponent, dialogConfig);
+    const dialogRef = this.dialog.open(CourseDialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+        data => console.log("Dialog output:", data)
+    );    
+    
+    dialogConfig.position = {
+      'top': '0',
+      left: '0'
+  };
+}
+
 
   ngOnInit(): void {
     this.dataSource = new MatTableDataSource(this.members);
@@ -64,5 +101,8 @@ export class UserAppointmentsComponent implements OnInit {
             this.dataLoading = false;
         });
     }
+    this.openDialog();
   }
+
+ 
 }

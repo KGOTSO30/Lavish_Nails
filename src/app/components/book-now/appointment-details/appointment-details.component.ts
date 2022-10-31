@@ -4,7 +4,7 @@ import { Location } from '@angular/common';
 
 import { AppointmentService } from '../appointment.service';
 import { AppointmentItem } from '../book-now.component';
-import { library } from '@fortawesome/fontawesome-svg-core';
+//import { library } from '@fortawesome/fontawesome-svg-core';
 //import { faFemale, faMale } from '@fortawesome/free-solid-svg-icons';
 
 //library.add(faFemale, faMale);

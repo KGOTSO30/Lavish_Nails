@@ -100,6 +100,7 @@ selectedHero?: Hero;
     
     this.dataSource = new MatTableDataSource(this.members);
     this.currentDate = new Date();
+    this.currentDate7 = this.selected;
     this.currentDate.setDate(this.currentDate.getDate() + 1);
     console.log(localStorage.getItem('center'));
   }

@@ -91,6 +91,7 @@ import { AppBookingComponent } from './components/app-booking/app-booking.compon
 import { AppBookingPaymentComponent } from './components/app-booking-payment/app-booking-payment.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { UserAppointmentsComponent } from './components/user-appointments/user-appointments.component';
+import { CourseDialogComponent } from './components/course-dialog/course-dialog.component';
 
 @NgModule({
   declarations: [
@@ -133,6 +134,7 @@ import { UserAppointmentsComponent } from './components/user-appointments/user-a
     AppBookingPaymentComponent,
     VerifyEmailComponent,
     UserAppointmentsComponent,
+    CourseDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -164,6 +166,7 @@ import { UserAppointmentsComponent } from './components/user-appointments/user-a
     NgxMatDatetimePickerModule,
 
     NgxMatTimepickerModule, */
+    MatDialogModule,
 
 
 
@@ -182,6 +185,7 @@ import { UserAppointmentsComponent } from './components/user-appointments/user-a
   exports: [PokemonModule],
   providers: [AuthService],
   bootstrap: [AppComponent],
+  entryComponents: [CourseDialogComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
