@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {MatDialog, MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-course-dialog',
@@ -15,6 +15,7 @@ export class CourseDialogComponent implements OnInit {
   description:string;
 
   constructor(
+    private dialog: MatDialog,
       private fb: FormBuilder,
       private dialogRef: MatDialogRef<CourseDialogComponent>,
       @Inject(MAT_DIALOG_DATA) data:any) {
@@ -24,7 +25,7 @@ export class CourseDialogComponent implements OnInit {
 
   ngOnInit() {
       this.form = this.fb.group({
-          description: [this.description, []],
+          description: [this.description],
           
       });
   }
@@ -34,6 +35,9 @@ export class CourseDialogComponent implements OnInit {
   }
 
   close() {
-      this.dialogRef.close();
+    
+   /*    this.dialogRef.close(); */
+    this.dialog.closeAll();
+      
   }
 }

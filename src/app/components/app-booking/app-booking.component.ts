@@ -305,12 +305,12 @@ makePayment(amount: any, service: any) {
     locale: 'auto',
     token: function (stripeToken: any) {
       console.log(stripeToken);
-      alert('Stripe token generated!---Maybe you might wanna say Payment Successful---Again why devs need designers');
+      alert('Maybe you might wanna say Payment Successful');
     },
   });
   paymentHandler.open({
     name: 'Lavished',
-    description: service + 'why devs need designers',
+    description: service,
     amount: amount * 100,
     email: this.auth1.currentUser?.email,
     currency: 'ZAR'
