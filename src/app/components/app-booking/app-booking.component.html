@@ -25,41 +25,40 @@
       <mat-card *ngIf="savedChanges">
 
         <div class="container" style="width:500px; border:0px">
-          <h1 class="mt-5 mb-4" style="text-align: center"> Payment <br>
+          <h1 class="mt-5 mb-4" style="text-align: center; color: black;"> Payment <br>
                                                             Summary <br>
                                                             <br><br>
 
                                                           </h1> <br>
-
+          <h3 style="color: black;">Acrylic Nails</h3>
           <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-50px">
-            <h3>Acrylic Nails</h3>
-            <h3 class="mt-5 mb-4"> {{selectedHero!.name}} (Small Nails)</h3>
-            <h3 class="mt-5 mb-4"> R {{selectedHero!.id}}.00</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> {{selectedHero!.name}} (Small Nails)</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> R {{selectedHero!.id}}.00</h3>
           </div>
 
           <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
-            <h3 class="mt-5 mb-4"> Extras</h3>
-            <h3 class="mt-5 mb-4"> R0.00</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> Extras</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> R0.00</h3>
           </div>
           <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
-            <h3 class="mt-5 mb-4"> <b>VAT</b></h3>
-            <h3 class="mt-5 mb-4"> R {{selectedHero!.id * 0.15}}</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> <b>VAT</b></h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> R {{selectedHero!.id * 0.15}}</h3>
           </div>
           <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
-            <h3 class="mt-5 mb-4"> <b>TOTAL (VAT INCL)</b></h3>
-            <h3 class="mt-5 mb-4">R {{selectedHero!.id}}.00</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> <b>TOTAL (VAT INCL)</b></h3>
+            <h3 class="mt-5 mb-4" style="color: black;">R {{selectedHero!.id}}.00</h3>
           </div>
           <div style="display:flex; flex-direction:row; justify-content:space-between; margin-top:-80px">
-            <h3 class="mt-5 mb-4"> <b>Deposit @ 50% </b></h3>
-            <h3 class="mt-5 mb-4"> R{{selectedHero!.id/2}}.00</h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> <b>Deposit @ 50% </b></h3>
+            <h3 class="mt-5 mb-4" style="color: black;"> R{{selectedHero!.id/2}}.00</h3>
           </div>
 
 
 
 
 
-            <button style="width: 200px" (click)="makePayment(selectedHero!.id/2,selectedHero!.name)" class="btn  btn-block">Pay Now</button> <br>
-            <button style="width: 200px; margin-top: 20px;" class="btn  btn-block">Pay Later</button>
+            <button style="width: 200px; color: black;" (click)="makePayment(selectedHero!.id/2,selectedHero!.name)" class="btn  btn-block">Pay Now</button> <br>
+            <button style="width: 200px; margin-top: 20px; color: black;" class="btn  btn-block">Pay Later</button>
 
         </div>
           <!-- Data is saved, proceed below.-->
@@ -74,23 +73,23 @@
       <div class="prompt-part">
         <img class="book-picture" src="assets/images/book-picture.svg">
         <div class="prompt">
-          <h1 class="option">Acrylic Nails</h1>
-          <div class="prompt1"> <h2 class="text">Price Range</h2> <h2 class="text">R300 - R400</h2> </div>
-          <div class="prompt1"> <h2 class="text">Nail Sizes</h2> <h2 class="text">S, M, L</h2> </div>
+          <h1 class="option" style="color: black;">Acrylic Nails</h1>
+          <div class="prompt1" style="color: black;"> <h2 class="text">Price Range</h2> <h2 class="text">R300 - R400</h2> </div>
+          <div class="prompt1" style="color: black;"> <h2 class="text">Nail Sizes</h2> <h2 class="text">S, M, L</h2> </div>
 
         </div>
       </div>
 
       <div class-="nails">
-          <h2 class="nail-sizes">Please select a nail size and service</h2>
+          <h2 class="nail-sizes" style="color: black;">Please select a nail size and service</h2>
           <div class="nail-buttons">
-            <button class="btn">
+            <button class="btn" style="color: black;">
               S
             </button>
-            <button class="btn">
+            <button class="btn" style="color: black;">
               M
             </button>
-            <button class="btn">
+            <button class="btn" style="color: black;">
               L
             </button>
 
@@ -103,22 +102,22 @@
 
         <li *ngFor="let hero of heroes">
           <button class="option-button" [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
-            <span class="badge">R {{hero.id}}</span>
-            <span class="name"> {{hero.name}}</span>
+            <span class="badge" style="color: black;">R {{hero.id}}</span>
+            <span class="name" > {{hero.name}}</span>
           </button>
         </li>
       </ul>
 
-      <div class="extras">
+      <div class="extras" style="color: black;">
         Would you like any extras?
         <div style="margin-top:20px;">
           <input type="radio" id="html" name="fav_language" value="HTML">
-          <label for="html">Yes</label><br>
+          <label for="html" style="color: black;">Yes</label><br>
         </div>
-        <div style="margin-bottom:50px;">
+        <div style="margin-bottom:50px;" style="color: black;">
           <input type="radio" id="css" name="fav_language" value="CSS">
-          <label for="css">No</label><br>
-        </div>
+          <label for="css" style="color: black;">No</label><br>
+        </div >
         Please select a date and time
       </div>
 
@@ -126,7 +125,7 @@
         <div *ngIf="selectedHero">
 
           <div class="mat-form-field">
-            <label for="hero-name">Service Chosen :  </label>
+            <label for="hero-name" style="color: black;">Service Chosen :  </label>
             <input id="hero-name" [(ngModel)]="selectedHero.name" name ="hero-name" placeholder="name">
           </div>
         </div>
@@ -139,7 +138,7 @@
         <div class="form-group col-md-6">
           <span class="med-spacer"></span>
           <span class="med-spacer"></span>
-          <label class="  col-form-label text-md-right" for="aptTime">Time</label>
+          <label class="  col-form-label text-md-right" for="aptTime" style="color: black;">Time</label>
 
           <input style="width:200px;" type="time"  [min]="min" [max]="max" class="form-control"  name="aptTime" id="aptTime"  [(ngModel)]="value" required>
 

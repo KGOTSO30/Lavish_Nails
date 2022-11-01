@@ -18,6 +18,7 @@
   line-height: 52px;
   padding-top: 35px;
   padding-bottom: 40px;
+  color: black;
 }
 
 .option-section{
@@ -51,7 +52,8 @@
 }
 
 .option-text{
-  outline-color: black;
+  color: black;
+
 }
 
 .find-us-section{

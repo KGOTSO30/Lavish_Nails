@@ -5,6 +5,11 @@
 .float-child {
     width: 50%;
     float: left;
-  
-   
-}  
+
+
+}
+
+h2
+{
+  color: black;
+}
