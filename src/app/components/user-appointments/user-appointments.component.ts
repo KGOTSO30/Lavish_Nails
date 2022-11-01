@@ -46,11 +46,12 @@ export  class UserAppointmentsComponent implements OnInit {
   displayedColumns = ['category', 'Appointment Date', 'name', 'price', '_id'];
 
   constructor(private auth: AuthService, private dialog: MatDialog) { }
+
   openDialog() {
 
     const dialogConfig = new MatDialogConfig();
 
-    dialogConfig.disableClose = false;
+    dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
 
     dialogConfig.data = {
@@ -59,15 +60,14 @@ export  class UserAppointmentsComponent implements OnInit {
   };
     this.dialog.open(CourseDialogComponent, dialogConfig);
     const dialogRef = this.dialog.open(CourseDialogComponent, dialogConfig);
-
-    dialogRef.afterClosed().subscribe(
-        data => console.log("Dialog output:", data)
-    );    
+   
     
+   
     dialogConfig.position = {
       'top': '0',
       left: '0'
   };
+  
 }
 
 
