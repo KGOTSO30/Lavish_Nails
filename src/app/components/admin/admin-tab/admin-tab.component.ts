@@ -23,18 +23,19 @@ export class AdminTabComponent implements OnInit {
     data5.addColumn('string', 'Customer Name');
     data5.addColumn('number', 'Number of Services Rendered For');
     data5.addColumn('boolean', 'Returning?');
+    data5.addColumn('string', 'Recommendation');
     data5.addRows([
-      ['Bridget Oppenheimer',  10, true],
-      ['Jim Carrey',  9,  true],
-      ['Alice', 5, true],
-      ['Bob Builder',   13,  true],
-      ['Hellen May',   1,  false],
-      ['Mbali Naidoo', 7, true],
-      ['Eva Materazzi',   3,  true],
-      ['Mildred Moyo',   1,  false],
-      ['Uncle Phil', 2, true],
+      ['Bridget Oppenheimer',  10, true, 'Reward'],
+      ['Jim Carrey',  9,  true, 'FeedBack'],
+      ['Alice', 5, true, 'FeedBack'],
+      ['Bob Builder',   13,  true, 'Reward'],
+      ['Hellen May',   1,  false, 'FeedBack'],
+      ['Mbali Naidoo', 7, true, 'FeedBack'],
+      ['Eva Materazzi',   3,  false, 'FeedBack'],
+      ['Mildred Moyo',   1,  false, 'FeedBack'],
+      ['Uncle Phil', 2, false, 'FeedBack'],
     
-      ['Hlumelo Dlamini',   8,  true]
+      ['Hlumelo Dlamini',   8,  true, 'FeedBack']
     ]);
 
     var options = {showRowNumber: true, width: '100%', height: '100%'};

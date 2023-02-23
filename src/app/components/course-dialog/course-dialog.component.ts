@@ -18,7 +18,7 @@ export class CourseDialogComponent implements OnInit {
     private dialog: MatDialog,
       private fb: FormBuilder,
       private dialogRef: MatDialogRef<CourseDialogComponent>,
-      @Inject(MAT_DIALOG_DATA) data:any) {
+      @Inject(MatDialogRef) data:any) {
 
       this.description = data.description;
   }

@@ -28,7 +28,7 @@ export class AdminReportsComponent implements OnInit {
       ['Rubberbase', 1500.00, '#D1B9AA'],            // RGB value
       ['Acrylic', 1200.00, 'blue'],            // English color name
       ['Polygel', 900.00, 'blue'],
-      ['Nail Art', 70, 'nude'],            // English color name
+      ['Nail Art', 70, 'red'],            // English color name
       ['Extras', 0.00, 'red'],
 
     ['Gel pedi', 20.00, 'color: red' ], // CSS-style declaration
@@ -42,22 +42,31 @@ export class AdminReportsComponent implements OnInit {
    chart.draw(data,options);
 
    var data3 = google.visualization.arrayToDataTable([
-    ['Element', 'Total Sales ', { role: 'style' }],
-    ['Rubberbase', 1500.00, 'blue'],            // RGB value
-    ['Acrylic', 1200.00, 'blue'],            // English color name
-    ['Polygel', 900.00, 'blue'],
-    ['Nail Art', 70, 'red'],            // English color name
-    ['Extras', 0.00, 'red'],
+    
+    ['Element', 'Total Sales ', { role: 'style' }, { role: 'annotation' }],
+    ['Rubberbase', 1500.00, 'blue','RB'],            // RGB value
+    ['Acrylic', 1200.00, 'blue', 'Acrylic'],            // English color name
+    ['Polygel', 900.00, 'blue', 'Polygel'],
+    ['Nail Art', 70, 'blue','Nail Art'],            // English color name
+    ['Extras', 10.00, 'blue', 'Extras'],
 
-  ['Gel pedi', 20.00, 'color: red' ], // CSS-style declaration
+  ['Gel pedi', 20.00, 'color: blue', 'Gel pedi' ], // CSS-style declaration
  ]);
+
+ var view = new google.visualization.DataView(data3);
+ view.setColumns([0, 1,
+                  { calc: "stringify",
+                    sourceColumn: 1,
+                    type: "string",
+                    role: "annotation" },
+                  2]);
 
  var options3 = {'title':'Total Sales of Each Category',
  'width':1000,
- 'height':800};
+ 'height':800,};
 
  var chart3 = new google.visualization.ColumnChart(document.getElementById("divColumnChart"));
- chart3.draw(data3,options3);
+ chart3.draw(view,options3);
   }
 
   drawCancelChart() {
