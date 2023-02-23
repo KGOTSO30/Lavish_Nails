@@ -61,7 +61,7 @@ onSelect(hero: Hero): void {
 }
 
 setAppData(formData: any) {
-  // formData.tags = formData.tags.split(',');    
+      
     this.auth.setNewAppDoc('Store/Lavish/user-carts', formData, this.selectedHero?.name,this.selectedHero?.id).then((res: any) => {
         this.savedChanges = true;
         this.dataLoading = false;
@@ -144,11 +144,7 @@ applyFilter(event: Event) {
     this.dataSource.paginator.firstPage();
   }
 }
-// applyFilter(filterValue: string) {
-//     filterValue = filterValue.trim(); // Remove whitespace
-//     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-//     this.dataSource.filter = filterValue;
-// }
+
 ngOnDestroy() {
 
   if (this.querySubscription) {
