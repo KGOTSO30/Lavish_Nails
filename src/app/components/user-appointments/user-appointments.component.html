@@ -12,7 +12,7 @@
       </ng-container>
       <ng-container matColumnDef="Appointment Date">
         <mat-header-cell *matHeaderCellDef mat-sort-header>APPOINTMENT DATE</mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString('yyyy-MM-dd') }} </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.AppointmentDate.toDate().toString() }} </mat-cell>
       </ng-container>
       <ng-container matColumnDef="name">
         <mat-header-cell *matHeaderCellDef mat-sort-header>SERVICE NAME</mat-header-cell>
