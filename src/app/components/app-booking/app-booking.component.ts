@@ -289,13 +289,10 @@ applyFilter(event: Event) {
     this.dataSource.paginator.firstPage();
   }
 }
-// applyFilter(filterValue: string) {
-//     filterValue = filterValue.trim(); // Remove whitespace
-//     filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-//     this.dataSource.filter = filterValue;
-// }
 
 
+
+// INITIALISING STRIPE PAYMENT
 
 paymentHandler: any = null;
   

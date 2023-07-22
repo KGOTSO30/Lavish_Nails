@@ -79,7 +79,7 @@ import { FiltersComponent } from './components/appointment-cart/filters/filters.
 import { ProductListComponent } from './components/appointment-cart/product-list/product-list.component';
 import { CartComponent } from './components/appointment-cart/cart/cart.component';
 import { CartItemComponent } from './components/appointment-cart/cart/cart-item/cart-item.component';
-import { ProductItemComponent } from './components/appointment-cart/product-list/product-item/product-item.component';
+//import { ProductItemComponent } from './components/appointment-cart/product-list/product-item/product-item.component';
 import { AdminLoginComponent } from './components/admin/admin-login/admin-login.component';
 import { AdminDashboardComponent } from './components/admin/admin-dashboard/admin-dashboard.component';
 import { AdminTabComponent } from './components/admin/admin-tab/admin-tab.component';
@@ -92,6 +92,7 @@ import { AppBookingPaymentComponent } from './components/app-booking-payment/app
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { UserAppointmentsComponent } from './components/user-appointments/user-appointments.component';
 import { CourseDialogComponent } from './components/course-dialog/course-dialog.component';
+import { MatError } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
@@ -122,7 +123,7 @@ import { CourseDialogComponent } from './components/course-dialog/course-dialog.
     ProductListComponent,
     CartComponent,
     CartItemComponent,
-    ProductItemComponent,
+   // ProductItemComponent,
     AdminLoginComponent,
     AdminDashboardComponent,
     AdminTabComponent,
@@ -167,6 +168,8 @@ import { CourseDialogComponent } from './components/course-dialog/course-dialog.
 
     NgxMatTimepickerModule, */
     MatDialogModule,
+   // MatError,
+    
 
 
 

@@ -2,8 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-import { AppointmentListComponent } from './components/appointment-list/appointment-list.component';
-import { AppointmentDetailsComponent } from './components/appointment-details/appointment-details.component';
 
 import { HighchartsChartModule } from 'highcharts-angular';
 
@@ -15,7 +13,7 @@ import { SalesComponent } from './components/sales/sales.component';
 import { ListComponent } from './components/book-now/list/list.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ReportTestComponent } from './components/report-test/report-test.component';
-import { SalonComponent } from './components/salon/salon.component';
+
 import { AddAppointmentComponent } from './components/add-appointment/add-appointment.component';
 import { HomeComponent } from './components/home/home.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -84,10 +82,7 @@ const routes: Routes = [
     component: ListComponent,
   },
 
-  {
-    path: 'salon',
-    component: SalonComponent,
-  },
+ 
 
   {
     path: 'menu',
